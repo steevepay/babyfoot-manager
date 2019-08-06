@@ -21,6 +21,8 @@ paths:
             type: "array"
             items:
               $ref: "#/definitions/Game"
+        500:
+          description: "Internal server error"
     post:
       summary: "Add a new game"
       description: ""
@@ -37,8 +39,12 @@ paths:
         schema:
           $ref: "#/definitions/NewGame"
       responses:
-        405:
-          description: "Invalid input"
+        200:
+          description: OK
+        400:
+          description: "Bad Request - Invalid input"
+        500:
+          description: "Internal server error"
   /games/{gameId}:
     patch:
       summary: "Update an existing game"
@@ -65,11 +71,11 @@ paths:
         200:
           description: OK
         400:
-          description: "Invalid game ID supplied"
+          description: "Bad Request - Invalid game ID supplied"
         404:
           description: "Game not found"
-        405:
-          description: "Invalid input"
+        500:
+          description: "Internal server error"
     delete:
       summary: "Deletes a game"
       description: ""
@@ -90,6 +96,8 @@ paths:
           description: "Invalid ID supplied"
         404:
           description: "Game not found"
+        500:
+          description: "Internal server error"
 
 definitions:
   Game:
