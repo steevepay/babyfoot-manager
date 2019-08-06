@@ -1,0 +1,126 @@
+swagger: "2.0"
+info:
+  description: "BabyFoot Manager est une application web de type RIA permettant de créer des parties de babyfoot. Sa particularité sera de pouvoir créer des parties de manière collaborative."
+  version: "1.0.0"
+  title: BabyFoot Manager API
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost:8080"
+basePath: "/api/v1"
+schemes:
+- "http"
+paths:
+  /games:
+    get:
+      summary: Get all games
+      responses:
+        200:
+          description: Return all games
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Game"
+    post:
+      summary: "Add a new game"
+      description: ""
+      operationId: "addGame"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Game object that needs to be added to the store"
+        required: true
+        schema:
+          $ref: "#/definitions/NewGame"
+      responses:
+        405:
+          description: "Invalid input"
+  /games/{gameId}:
+    patch:
+      summary: "Update an existing game"
+      description: ""
+      operationId: "updateGame"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Game object status that needs to be updated"
+        required: true
+        schema:
+          $ref: '#/definitions/UpdateGame'
+      - name: "gameId"
+        in: "path"
+        description: "Game id to update"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        200:
+          description: OK
+        400:
+          description: "Invalid game ID supplied"
+        404:
+          description: "Game not found"
+        405:
+          description: "Invalid input"
+    delete:
+      summary: "Deletes a game"
+      description: ""
+      operationId: "deleteGame"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "gameId"
+        in: "path"
+        description: "Game id to delete"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        200:
+          description: OK
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Game not found"
+
+definitions:
+  Game:
+    type: "object"
+    required:
+    - "name"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+        example: "Charles Vs Johnson champions league"
+      status:
+        type: "string"
+        description: "Game status"
+        enum:
+        - "progress"
+        - "done"
+  NewGame:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+        example: "Charles Vs Johnson champions league"
+  UpdateGame:
+    type: "object"
+    properties:
+      status: 
+        type: "string"
+        description: "Game status"
+        enum:
+        - "progress"
+        - "done"
