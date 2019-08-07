@@ -5,7 +5,6 @@ export default class BfApiService {
 
   async getGames() {
     const res = await fetch(this.url).then(res => res.json());
-    console.log(res)
     return res; 
   }
 
@@ -19,7 +18,6 @@ export default class BfApiService {
         'Content-Type': 'application/json'
       }
     }).then(response => response.json());
-    console.log(res);
     return res;
   }
 
@@ -33,7 +31,6 @@ export default class BfApiService {
         'Content-Type': 'application/json'
       }
     }).then(response => response.json());
-    console.log(res);
     return res;
   }
 
@@ -44,7 +41,6 @@ export default class BfApiService {
         'Content-Type': 'application/json'
       }
     }).then(response => response.json());
-    console.log(res);
     return res;
   }
 }

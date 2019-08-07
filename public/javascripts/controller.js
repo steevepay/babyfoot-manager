@@ -3,7 +3,7 @@ import apiService from './apiservice.js';
 
 let apiS = new apiService;
 
-// apiS.getGames();
+
 document.getElementById('title').addEventListener('click', function() { alert('click') }, false);
 // apiS.newGame('John');
 // apiS.updateGame(800, 'done');
@@ -17,3 +17,11 @@ document.getElementById('title').addEventListener('click', function() { alert('c
 // }
 
 // userAction();
+
+const displayGames = async () => {
+  let resp = await apiS.getGames();
+  console.log(resp);
+  
+}
+
+displayGames();
