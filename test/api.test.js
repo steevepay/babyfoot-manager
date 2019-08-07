@@ -14,7 +14,7 @@ describe('Babyfoot Manager API', () => {
   
   beforeEach('Setting up the babyfoot API - Cleaning the DB', (done) => {
     console.log('beforeEach');
-    chai.request(server).delete(endpoint + "/all").end((err, res) => {
+    chai.request(server).delete(endpoint).end((err, res) => {
       done()
     });
   });

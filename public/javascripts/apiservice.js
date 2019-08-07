@@ -35,7 +35,7 @@ export default class BfApiService {
   }
 
   async deleteGame(idGame) {
-    const res = await fetch(this.url + "/" + idGame, {
+    const res = await fetch(`${this.url}/${idGame}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'

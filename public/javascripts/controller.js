@@ -1,7 +1,7 @@
 // const apis = require('../services/bfApiService.js');
 import apiService from './apiservice.js';
 
-let apiS = new apiService;
+let apiS = new apiService();
 
 
 document.getElementById('title').addEventListener('click', function() { alert('click') }, false);
@@ -21,7 +21,6 @@ document.getElementById('title').addEventListener('click', function() { alert('c
 const displayGames = async () => {
   let resp = await apiS.getGames();
   console.log(resp);
-  
 }
 
 displayGames();

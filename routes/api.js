@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const db = require('../api/index')
 
 /* GET game listing. */
@@ -55,7 +55,7 @@ router.patch('/games/:id', async (req, res, next) => {
   });
 })
 
-router.delete('/games/all', async (req, res, next) => {
+router.delete('/games', async (req, res, next) => {
   await db.query(`DELETE FROM games`, null, (err, result) => {
     if (err) {
       return res.status(500).json({ errors: ['Oops, could not retrieve games...'] });

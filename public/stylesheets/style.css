@@ -88,8 +88,12 @@ a {
   /* background-color: #00ea72; */
   /* background-color: #61707D; */
   /* background-color: #9D69A3; */
-  background-color: #E85D75;
+  /* background-color: #E85D75; */
   /* background-color: #F5FBEF; */
+  background: -webkit-linear-gradient(top, #E85D75, #702b2b);
+  /* background: -moz-linear-gradient(top, #3b5998, #2b4170);
+  background: -ms-linear-gradient(top, #3b5998, #2b4170);
+  background: -webkit-linear-gradient(top, #3b5998, #2b4170); */
   /* color:black; */
   color: white;
   justify-content: center;
@@ -98,10 +102,20 @@ a {
   
 }
 
-.card > .card-title {
+.card-content {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+}
+
+.card-title {
   
   margin-left: 20px;
   margin-right: 20px;
+}
+
+.card-status {
+  font-size: 10px;
 }
 
 .icon {
@@ -109,6 +123,22 @@ a {
   height: 80px;
   overflow: hidden;
   margin-bottom: -10px;
+}
+
+.btn-delete {
+  background: white;
+  padding: 6px;
+  border-radius: 20px;
+  margin-left: 7px;
+}
+
+.btn-delete:hover {
+  background: #E85D75;
+  cursor: pointer;
+}
+
+.greyscale {
+  filter: grayscale(1) !important;
 }
 
 
