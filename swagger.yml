@@ -43,7 +43,7 @@ paths:
           description: OK
           schema:
             items:
-              $ref: '#/definitions/ResponsePost'
+              $ref: '#/definitions/Game'
         400:
           description: "Bad Request - Invalid input"
         500:
@@ -135,9 +135,3 @@ definitions:
         enum:
         - "progress"
         - "done"
-  ResponsePost:
-    type: "object"
-    properties:
-      id:
-        type: "integer"
-        format: "int64"
