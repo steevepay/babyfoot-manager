@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "DEBUG=babyfoot-manager:* npm start",
     "start": "node ./bin/www",
-    "prod": "NODE_ENV=production npm start"
+    "prod": "NODE_ENV=production npm start",
+    "test": "mocha"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -14,5 +15,8 @@
     "express": "~4.16.1",
     "morgan": "~1.9.1",
     "pg": "^7.12.0"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.0"
   }
 }
