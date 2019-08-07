@@ -50,6 +50,16 @@ router.patch('/games/:id', async (req, res, next) => {
   });
 })
 
+router.delete('/games/all', async (req, res, next) => {
+  await db.query(`DELETE FROM games`, null, (err, result) => {
+    if (err) {
+      return res.status(500).json({ errors: ['Oops, could not retrieve games...'] });
+      // return next(err)
+    }
+    res.send(result.rows)
+  })
+});
+
 /* DELETE home page */
 router.delete('/games/:id', async (req, res, next) => {
   const { id } = req.params;
@@ -66,7 +76,7 @@ router.delete('/games/:id', async (req, res, next) => {
     }
     res.send(result.rows)
   });
-})
+});
 
 
 module.exports = router;
