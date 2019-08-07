@@ -5,6 +5,7 @@
 body {
   margin:0px;
   font: 14px "Roboto", Helvetica, Arial, sans-serif;
+  
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -46,6 +47,7 @@ a {
   justify-content: center;
 } */
 
+
 @media only screen and (min-width: 992px) {
   .container {
       max-width: 960px;
@@ -66,8 +68,6 @@ a {
 
 .container {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
   text-align: center;
@@ -75,49 +75,58 @@ a {
 
 
 #title {
-  margin-top:20px;
+  color:white;
 }
 
 /* INPUT CONTAINER */
 
 #container-input {
   margin-bottom: 20px;
+  display: inline-flex;
 }
 
 #container-input > input {
-  /* display: block;
-  background: none;
-  padding: 0.125rem 0.125rem 0.0625rem;
-  font-size: 1rem;
-  border-width: 0;
-  border-color: transparent;
-  line-height: 1.9;
-  width: 100%;
-  color: transparent;
-  -webkit-transition: all 0.28s ease;
-  transition: all 0.28s ease;
-  box-shadow: none;
-  -webkit-writing-mode: horizontal-tb !important;
-  text-rendering: auto;
-  color: initial;
-  letter-spacing: normal;
-  word-spacing: normal;
-  text-transform: none;
-  text-indent: 0px;
-  text-shadow: none;
-  display: inline-block;
-  text-align: start;
-  -webkit-appearance: textfield;
-  background-color: white;
-  -webkit-rtl-ordering: logical;
-  cursor: text;
-  margin: 0em;
-  font: 400 11px system-ui;
-  padding: 1px;
-  border-width: 2px;
-  border-style: inset;
-  border-color: initial;
-  border-image: initial; */
+  outline: none;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0 , .2);
+  border: none;
+  font-size: 20px;
+  padding: 10px 20px;
+  width: 300px;
+  transition: all 0.2s ease;
+}
+
+#container-input > input:focus {
+  box-shadow: 0px 6px 10px rgba(0, 0, 0 , .4);
+}
+
+#container-input > #btn-add {
+  color: white;
+  background:#7f8ff4;
+  transition: all 0.2s ease-in;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, .1);
+  border-radius: 2px;
+  padding: 12px 36px;
+  border:0;
+  outline:0;
+  font-size: 15px;
+}
+
+#container-input > #btn-add:hover {
+  background: #7484ec;
+}
+
+#container-input > #btn-add:active {
+  background:#7f8ff4;
+  box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, .2) !important;
+}
+
+/* NAVBAR */
+#navbar {
+  background-image: linear-gradient(50deg,#102694 0,#ff7d4b);
+  padding-top:20px;
+  padding-bottom:20px;
+  margin-bottom:30px;
+  text-align: center;
 }
 
 /* CARD PLAYER */
