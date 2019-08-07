@@ -41,6 +41,7 @@ describe('Babyfoot Manager API', () => {
         .set('content-type', 'application/json')
         .send({"name": name});
       res.should.have.status(201);
+      res.body[0].should.have.property('id');
       
       res = await chai.request(server)
         .get(endpoint);
@@ -59,6 +60,7 @@ describe('Babyfoot Manager API', () => {
           .set('content-type', 'application/json')
           .send({"name": name});
         res.should.have.status(201);
+        res.body[0].should.have.property('id');
       }
       
       const res2 = await chai.request(server).get(endpoint);
@@ -89,7 +91,7 @@ describe('Babyfoot Manager API', () => {
         .set('content-type', 'application/json')
         .send({"name": "John vs Tom - test"});
       res.should.have.status(201);
-      
+      res.body[0].should.have.property('id');
       let idGame = res.body[0].id;
       status = "done"
       
