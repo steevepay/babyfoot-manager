@@ -1,13 +1,35 @@
 <html>
 
 <head>
-  <title>Express</title>
+  <title>Babyfoot Manager</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
+  <!-- <script src="/javascripts/apiservice.js"></script> -->
+  <script type="module" src="/javascripts/controller.js" ></script>
 </head>
 
 <body>
-  <h1>Express</h1>
-  <p>Welcome to Express</p>
+  <div class="container">
+    <h1 id="title">Babyfoot Manager</h1>
+    
+    <div id="container-input">
+      <input placeholder="Nouvelle partie..." type="text">
+      <button>Ajouter</button>
+    </div>
+
+    <div id="container-list">
+      <div id="nbr-games">0</div>
+      <div class="card">
+        <object class="icon" type="image/svg+xml" data="https://avatars.dicebear.com/v2/human/test.svg?options[mood][]=happy" class="logo">
+          Your browser does not support SVG
+        </object>
+        <div class="card-title">John vs Maxime</div>
+        <object class="icon" type="image/svg+xml" data="https://avatars.dicebear.com/v2/human/test2.svg?options[mood][]=happy" class="logo">
+          Your browser does not support SVG
+        </object>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
+

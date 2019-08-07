@@ -6,10 +6,9 @@ let server = require('../app');
 let should = chai.should();
 let expect = chai.expect;
 chai.use(chaiHttp);
+
 const endpoint = '/api/v1/games';
 const endpointid = '/api/v1/games/';
-
-// when async, utilise done()
 
 describe('Babyfoot Manager API', () => {
   
@@ -50,8 +49,11 @@ describe('Babyfoot Manager API', () => {
       res.body[0].name.should.be.eql(name);
       res.body[0].status.should.be.eql(status);
     })
+  });
 
-    it('should get multiple games',  async () => {
+  describe('POST', () => {
+
+    it('should post  multiple games',  async () => {
       let nbrGames = 10;
       for (let i = 0; i < nbrGames; i++) {
         let name = "John vs Tom - test - " + i;
@@ -69,9 +71,7 @@ describe('Babyfoot Manager API', () => {
       res2.body[0].name.should.be.eql("John vs Tom - test - " + 0)
       res2.body[nbrGames - 1].name.should.be.eql("John vs Tom - test - " + (nbrGames - 1))
     })
-  });
 
-  describe('POST', () => {
     it('should respond by a bad request with an empty string', async () => {
       const name = "";
       const res = await chai.request(server)
