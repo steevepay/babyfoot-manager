@@ -1,0 +1,6 @@
+CREATE TABLE games 
+(
+  ID SERIAL PRIMARY KEY, 
+  name VARCHAR(30) NOT NULL, 
+  status VARCHAR(30) DEFAULT 'progress'
+);

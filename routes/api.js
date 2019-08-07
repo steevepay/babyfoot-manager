@@ -4,7 +4,7 @@ const db = require('../api/index')
 
 /* GET game listing. */
 router.get('/games', async (req, res, next) => {
- await db.query(`SELECT * FROM games ORDER BY id DESC`, null, (err, result) => {
+ await db.query(`SELECT * FROM games ORDER BY id ASC`, null, (err, result) => {
     if (err) {
       return res.status(500).json({ errors: ['Oops, something went wrong...'] });
       // return next(err)

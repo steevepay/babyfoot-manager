@@ -131,7 +131,6 @@ a {
 
 /* NAVBAR */
 #navbar {
-  background-image: linear-gradient(50deg,#102694 0,#ff7d4b);
   padding-top:20px;
   padding-bottom:20px;
   margin-bottom:30px;
@@ -197,35 +196,34 @@ a {
 }
 
 .card-theme-red{
-  background: -webkit-linear-gradient(top, #E85D75, #702b2b);
-  background: -moz-linear-gradient(top, #E85D75, #702b2b);
-  background: -ms-linear-gradient(top, #E85D75, #702b2b);
-  background: -webkit-linear-gradient(top, #E85D75, #702b2b);
+  background: -webkit-linear-gradient(50deg, #de2545, #702b2b);
+  background: -moz-linear-gradient(50deg, #de2545, #702b2b);
+  background: -ms-linear-gradient(50deg, #de2545, #702b2b);
+  background: -webkit-linear-gradient(50deg, #de2545, #702b2b);
 }
 
 .card-theme-purple{
-  background: -webkit-linear-gradient(top, #9D69A3, #702b2b);
-  background: -moz-linear-gradient(top, #9D69A3, #702b2b);
-  background: -ms-linear-gradient(top, #9D69A3, #702b2b);
-  background: -webkit-linear-gradient(top, #9D69A3, #702b2b);
+  background: -webkit-linear-gradient(50deg, #702b2b,#db59ea  );
+  background: -moz-linear-gradient(50deg, #702b2b,#db59ea);
+  background: -ms-linear-gradient(50deg, #702b2b,#db59ea);
+  background: -webkit-linear-gradient(50deg, #702b2b,#db59ea);
 }
 
 .card-theme-grey{
-  background: -webkit-linear-gradient(top, #2f5498, #61707D);
-  background: -moz-linear-gradient(top, #2f5498, #61707D);
-  background: -ms-linear-gradient(top, #2f5498, #61707D);
-  background: -webkit-linear-gradient(top, #2f5498, #61707D);
+  background: -webkit-linear-gradient(50deg, #2f5498, #00fff3);
+  background: -moz-linear-gradient(50deg, #2f5498, #00fff3);
+  background: -ms-linear-gradient(50deg, #2f5498, #00fff3);
+  background: -webkit-linear-gradient(50deg, #2f5498, #00fff3);
 }
 
 .card-theme-green{
-  background: -webkit-linear-gradient(top, #00ea72, #61707D);
-  background: -moz-linear-gradient(top, #00ea72, #61707D);
-  background: -ms-linear-gradient(top, #00ea72, #61707D);
-  background: -webkit-linear-gradient(top, #00ea72, #61707D);
+  background: -webkit-linear-gradient(50deg, #094171, #00ea72);
+  background: -moz-linear-gradient(50deg, #094171, #00ea72);
+  background: -ms-linear-gradient(50deg, #094171, #00ea72);
+  background: -webkit-linear-gradient(50deg, #094171, #00ea72); 
 }
 
 .card-theme-orange{
-  
   background: -webkit-linear-gradient(50deg,#102694 0,#ff7d4b);
   background: -moz-linear-gradient(50deg,#102694 0,#ff7d4b);
   background: -ms-linear-gradient(50deg,#102694 0,#ff7d4b);

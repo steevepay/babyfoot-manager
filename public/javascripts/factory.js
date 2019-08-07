@@ -1,7 +1,4 @@
-export default (game, apiS) => {
-  // const theme = ['red', 'purple', 'grey', 'green']
-  // var idcolor = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
-  // console.log(idcolor);
+export default (game, apiS, themeColor) => {
 
   let players;
   if (game.name.includes(' vs ')) {
@@ -13,8 +10,8 @@ export default (game, apiS) => {
   let card = document.createElement("div"); 
   card.id = `card-${game.id}`;
   card.classList.add("card");
-  card.classList.add(`card-theme-orange`);
-  // ${theme[idcolor]}
+  card.classList.add(themeColor);
+  
   
   let cardcontent = document.createElement("div"); 
   cardcontent.classList.add("card-content");

@@ -4,6 +4,12 @@ import cardBuilder from './factory.js'
 
 let apiS = new apiService();
 
+const colors = ['red', 'purple', 'grey', 'green', 'orange']
+const idcolor = Math.floor(Math.random() * (4 - 0 + 1)) + 0;
+const themeColor = `card-theme-${colors[idcolor]}`;
+document.getElementById("navbar").classList.add(themeColor);
+
+
 
 document.getElementById('btn-add').addEventListener('click', () => {
   let name = document.getElementById('input-game').value;
@@ -13,7 +19,7 @@ document.getElementById('btn-add').addEventListener('click', () => {
   } else {
     document.getElementById("error-box").style.display = "none";
     apiS.newGame(name).then((res) => {
-      cardBuilder(res[0], apiS);
+      cardBuilder(res[0], apiS, themeColor);
     });
   }
   
@@ -35,7 +41,7 @@ const displayGames = async () => {
   let resp = await apiS.getGames();
   console.log(resp);
   resp.forEach(game => {
-    cardBuilder(game, apiS);
+    cardBuilder(game, apiS, themeColor);
   });
 }
 

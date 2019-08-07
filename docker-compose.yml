@@ -1,0 +1,36 @@
+version: '3.1'
+
+services:
+  bf-postgre:
+    image: postgres
+    container_name: babyfoot.db
+    restart: always
+    expose: 
+      - "5432"
+    # ports:
+    # - "5432:5432"
+    environment:
+      POSTGRES_DB: babyfoot
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    volumes:
+      - ./db/:/docker-entrypoint-initdb.d/
+  bf-server:
+    build: .
+    command: "npm start"
+    container_name: babyfoot.server
+    ports:
+      - "3010:3000"
+    links:
+      - bf-postgre
+    networks:
+      - default
+    environment:
+      - VIRTUAL_HOST=babyfoot.steevep.com
+      - LETSENCRYPT_HOST=babyfoot.steevep.com
+      - LETSENCRYPT_EMAIL=steeve.payraudeau@gmail.com
+
+networks:
+  default:
+    external:
+      name: webproxy
