@@ -19,13 +19,18 @@ router.post('/games', async (req, res, next) => {
   if (!name || name === undefined || name.length === 0) {
     return res.status(400).json({ errors: ['Bad Request - Invalid name'] });
   }
-  await db.query('INSERT INTO games (name) VALUES ($1)', [name], (err, result) => {
+  await db.query('INSERT INTO games (name) VALUES ($1) RETURNING id', [name], (err, result) => {
     if (err) {
       return res.status(500).json({ errors: ['Oops, something went wrong...'] });
       // return next(err)
     }
-    res.status(201).json({ success: ['Created!'] })
+    res.status(201).send(result.rows)
   });
+  // await db.query("SELECT lastval()", null, (err, result) => {
+  //   console.log(err);
+  //   console.log(result);
+  //   // res.status(201).json(result.rows);
+  // });
 })
 
 /* PUT home page. */

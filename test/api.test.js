@@ -90,14 +90,9 @@ describe('Babyfoot Manager API', () => {
         .send({"name": "John vs Tom - test"});
       res.should.have.status(201);
       
-      // GET
-      res = await chai.request(server)
-        .get(endpoint);
-      res.should.have.status(200);
-      res.body.length.should.be.eql(1)
-      res.body[0].status.should.be.eql(status);
       let idGame = res.body[0].id;
       status = "done"
+      
       // PATCH
       res = await chai.request(server)
         .patch(endpointid + idGame)
@@ -123,6 +118,16 @@ describe('Babyfoot Manager API', () => {
       res.should.have.status(404);
     })
 
+    it ('should response error 400 with a wrong id', async () => {
+      // PATCH
+      const status = "done";
+      res = await chai.request(server)
+        .patch(endpointid + 'test-failed')
+        .set('content-type', 'application/json')
+        .send({"status": status});
+      res.should.have.status(400);
+    })
+
     it ('should response error 400 with a wrong status', async () => {
       // PATCH
       const status = "";
@@ -136,9 +141,44 @@ describe('Babyfoot Manager API', () => {
 
   describe('DELETE', () => {
 
-    it('should delete one game', () => {
-      
-    });
+    it('should delete one game', async () => {
+      // POST
+      const name = "John vs Tom - test - delete";
+      let res = await chai.request(server)
+        .post(endpoint)
+        .set('content-type', 'application/json')
+        .send({"name": name});
+      res.should.have.status(201);
+      let idGame = res.body[0].id;
+
+      // DELETE
+      res = await chai.request(server)
+        .delete(endpointid + idGame);
+      res.should.have.status(200);
+
+      // GET
+      res = await chai.request(server)
+        .get(endpoint);
+      res.should.have.status(200);
+      res.body.should.be.a('array');
+      res.body.length.should.be.eql(0);
+    });
+
+    it ('should response error 404 with a wrong status', async () => {
+      // DELETE
+      const status = "";
+      res = await chai.request(server)
+        .delete(endpointid + 10);
+      res.should.have.status(404);
+    })
+
+    it ('should response error 400 with a wrong status', async () => {
+      // DELETE
+      const status = "";
+      res = await chai.request(server)
+        .delete(endpointid + "fewfwe");
+      res.should.have.status(400);
+    })
 
   });
 

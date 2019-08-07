@@ -41,6 +41,9 @@ paths:
       responses:
         200:
           description: OK
+          schema:
+            items:
+              $ref: '#/definitions/ResponsePost'
         400:
           description: "Bad Request - Invalid input"
         500:
@@ -71,7 +74,7 @@ paths:
         200:
           description: OK
         400:
-          description: "Bad Request - Invalid game ID supplied"
+          description: "Invalid game ID supplied"
         404:
           description: "Game not found"
         500:
@@ -132,3 +135,9 @@ definitions:
         enum:
         - "progress"
         - "done"
+  ResponsePost:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
