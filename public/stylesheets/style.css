@@ -127,8 +127,6 @@ a {
 }
 
 #container-input > #btn-add {
-  color: white;
-  background:#7f8ff4;
   transition: all 0.2s ease-in;
   /* box-shadow: 0 0 10px 5px rgba(0, 0, 0, .1); */
   border-radius: 2px;
@@ -227,11 +225,21 @@ a {
   background: -webkit-linear-gradient(50deg, #702b2b, #de2545);
 }
 
+.btn-red {
+  color:white;
+  background-color:#713436;
+}
+
 .card-theme-purple{
   background: -webkit-linear-gradient(50deg, #702b2b,#db59ea  );
   background: -moz-linear-gradient(50deg, #702b2b,#db59ea);
   background: -ms-linear-gradient(50deg, #702b2b,#db59ea);
   background: -webkit-linear-gradient(50deg, #702b2b,#db59ea);
+}
+
+.btn-purple {
+  color:white;
+  background-color:#81334c;
 }
 
 .card-theme-grey{
@@ -241,6 +249,11 @@ a {
   background: -webkit-linear-gradient(50deg, #2f5498, #00fff3);
 }
 
+.btn-grey {
+  color: white;
+  background: #307bac;
+}
+
 .card-theme-green{
   background: -webkit-linear-gradient(50deg, #094171, #00ea72);
   background: -moz-linear-gradient(50deg, #094171, #00ea72);
@@ -248,9 +261,19 @@ a {
   background: -webkit-linear-gradient(50deg, #094171, #00ea72); 
 }
 
+.btn-green {
+  color:white;
+  background-color:#095a72;
+}
+
 .card-theme-orange{
   background: -webkit-linear-gradient(50deg,#102694 0,#ff7d4b);
   background: -moz-linear-gradient(50deg,#102694 0,#ff7d4b);
   background: -ms-linear-gradient(50deg,#102694 0,#ff7d4b);
   background: -webkit-linear-gradient(50deg,#102694 0,#ff7d4b);
+}
+
+.btn-orange {
+  color: white;
+  background:#7f8ff4;
 }
