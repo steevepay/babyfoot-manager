@@ -4,7 +4,8 @@ import design from './design.js'
 export default class Games {
   
   constructor() {
-    this.socket = new WebSocket(`wss://${window.location.host}`);
+    const protocol = window.location.protocol.includes('https:') ? 'wss:' : 'ws:'
+    this.socket = new WebSocket(`${protocol}//${window.location.host}`);
     this.apiS = new apiService();
     this.design = new design();
     this.games =  [];
@@ -25,13 +26,9 @@ export default class Games {
       let message = JSON.parse(event.data);
       if (message.type === 'message-bf')
         if (message.action === 'addGame') {
-          // await this.update();
-          this.games.push(message.data);
-          this.design.cardBuilder(message.data);
-          this.initCardClicks(message.data);
-          this.updateGamesInProgress();
+          this.addCard(message.data)
         } else if (message.action === 'updateGame') {
-          this.updateCardStatus(message.id);
+          this.updateCard(message.id);
         } else if (message.action === 'deleteGame') {
           this.deleteCard(message.id);
         }
@@ -80,11 +77,9 @@ export default class Games {
       } else {
         this.design.hideInputError();
         this.apiS.newGame(name).then((res) => {
+          document.getElementById('input-game').value = '';
           let game = res[0];
-          this.games.push(game);
-          this.design.cardBuilder(game);
-          this.initCardClicks(game);
-          this.updateGamesInProgress();
+          this.addCard(game)
           this.broadcastAddGame(game);
         });
       }
@@ -114,7 +109,7 @@ export default class Games {
 
     // Listen for card click
     document.getElementById(`card-content-${game.id}`).addEventListener('click', () => {
-      var status = this.updateCardStatus(game.id);
+      var status = this.updateCard(game.id);
       this.apiS.updateGame(game.id, status).then(() => {
         this.broadcastUpdateGame(game.id);
       });
@@ -128,7 +123,14 @@ export default class Games {
     this.design.displayNbrGamesInProgress(res);
   }
 
-  updateCardStatus(id) {
+  addCard(game) {
+    this.games.push(game);
+    this.design.cardBuilder(game);
+    this.initCardClicks(game);
+    this.updateGamesInProgress();
+  }
+
+  updateCard(id) {
     let g = this.games.find(x => x.id === id);
     
     if (g.status === 'progress') {
