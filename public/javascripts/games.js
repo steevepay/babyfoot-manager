@@ -4,7 +4,7 @@ import design from './design.js'
 export default class Games {
   
   constructor() {
-    this.socket = new WebSocket('ws://localhost:3010/');
+    this.socket = new WebSocket(`ws://${window.location.host}`);
     this.apiS = new apiService();
     this.design = new design();
     this.games =  [];
