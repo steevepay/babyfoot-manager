@@ -8,10 +8,6 @@ export default class WebSockets {
     }
   }
 
-  getSocket() {
-    return this.socket;
-  }
-
   broadcast(type, action, data) {
     var message = {
       'type': type,

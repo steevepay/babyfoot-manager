@@ -2,19 +2,14 @@
 import WS from './websocket.service.js'
 import BabyfootController from './babyfoot.controller.js';
 
-const ws = new WS();
-const games = new BabyfootController(ws);
-games.init();
+const wss = new WS();
+const bfc = new BabyfootController(wss);
+bfc.init();
 
-ws.socket.onmessage = event => {
-  // Handle message
+wss.socket.onmessage = event => {
   let message = JSON.parse(event.data);
-  if (message.type === 'message-bf')
-    if (message.action === 'addGame') {
-      games.addCard(message.data)
-    } else if (message.action === 'updateGame') {
-      games.updateCard(message.data);
-    } else if (message.action === 'deleteGame') {
-      games.deleteCard(message.data);
-    }
+  
+  if (message.type === bfc.wsTypeName && bfc.wsActions.includes(message.action)) {
+    bfc[message.action](message.data)
+  }
 }
