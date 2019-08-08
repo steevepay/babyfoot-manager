@@ -209,10 +209,10 @@ a {
 }
 
 .card-theme-red{
-  background: -webkit-linear-gradient(50deg, #de2545, #702b2b);
-  background: -moz-linear-gradient(50deg, #de2545, #702b2b);
-  background: -ms-linear-gradient(50deg, #de2545, #702b2b);
-  background: -webkit-linear-gradient(50deg, #de2545, #702b2b);
+  background: -webkit-linear-gradient(50deg, #702b2b, #de2545);
+  background: -moz-linear-gradient(50deg, #702b2b, #de2545);
+  background: -ms-linear-gradient(50deg, #702b2b, #de2545);
+  background: -webkit-linear-gradient(50deg, #702b2b, #de2545);
 }
 
 .card-theme-purple{
