@@ -17,7 +17,9 @@
 
 #header-tchat {
   /* color:white; */
-  padding: 8px 4px 7px 8px;
+  padding: 9px;
+  font-size: 13px;
+  font-family: 'Rubik', sans-serif !important;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   box-shadow: 0 2px 1px rgba(0, 0, 0, .1);
