@@ -29,6 +29,7 @@ export default class Games {
           this.games.push(game);
           this.design.cardBuilder(game);
           this.initCardClicks(game);
+          this.updateGamesInProgress();
         });
       }
     }, false);
