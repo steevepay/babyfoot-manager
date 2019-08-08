@@ -22,7 +22,7 @@ export default class BfApiService {
   }
 
   async updateGame(idGame, status) {
-    const res = await fetch(this.url + "/" + idGame, {
+    const res = await fetch(`${this.url}/${idGame}`, {
       method: 'PATCH',
       body: JSON.stringify({
         status: status

@@ -29,6 +29,13 @@ export default class Design {
     document.getElementById(`player-two-${game.id}`).data = `https://avatars.dicebear.com/v2/human/${players[1]}.svg?options[mood][]=happy`
   }
 
+  cleanCards() {
+    var node = document.getElementById("container-list");
+    while (node.firstChild) {
+      node.removeChild(node.firstChild);
+    }
+  }
+
   cardBuilder (game) {
     let players = this.getPlayersName(game.name);
 
@@ -102,5 +109,13 @@ export default class Design {
 
   displayNbrGamesInProgress(nbr) {
     document.getElementById("nbr-games").innerHTML = `${nbr} games`;
+  }
+
+  showInputError() {
+    document.getElementById("error-box").style.display = "block";
+  }
+
+  hideInputError() {
+    document.getElementById("error-box").style.display = "none";
   }
 }

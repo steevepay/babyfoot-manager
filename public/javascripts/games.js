@@ -4,6 +4,7 @@ import design from './design.js'
 export default class Games {
   
   constructor() {
+    this.socket = new WebSocket('ws://localhost:3010/');
     this.apiS = new apiService();
     this.design = new design();
     this.games =  [];
@@ -14,22 +15,77 @@ export default class Games {
     await this.initGames();
     this.displayGames();
     this.updateGamesInProgress();
+
+    // this.socket.onopen = event => {
+      
+    // };
+    
+    this.socket.onmessage = async event => {
+      // Handle message
+      let message = JSON.parse(event.data);
+      if (message.type === 'message-bf')
+        if (message.action === 'addGame') {
+          // await this.update();
+          this.games.push(message.data);
+          this.design.cardBuilder(message.data);
+          this.initCardClicks(message.data);
+          this.updateGamesInProgress();
+        } else if (message.action === 'updateGame') {
+          this.updateCardStatus(message.id);
+        } else if (message.action === 'deleteGame') {
+          this.deleteCard(message.id);
+        }
+    }
+    
+    this.socket.onerror = error => {
+      console.log(`WebSocket error: ${error}`)
+    }
   }
+
+  broadcastAddGame(game) {
+    var message = {
+      'type':'message-bf',
+      'action':'addGame',
+      'data': game
+    }
+    this.socket.send(JSON.stringify(message)); 
+  }
+
+  broadcastUpdateGame(id) {
+    var message = {
+      'type':'message-bf',
+      'action':'updateGame',
+      'id': id
+    }
+    this.socket.send(JSON.stringify(message)); 
+  }
+
+  broadcastDeleteGame(id) {
+    var message = {
+      'type':'message-bf',
+      'action':'deleteGame',
+      'id': id
+    }
+    this.socket.send(JSON.stringify(message)); 
+  }
+
+  
 
   initInterface() {
     document.getElementById('btn-add').addEventListener('click', () => {
       let name = document.getElementById('input-game').value;
       const format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
       if (name === "" || format.test(name)) {
-        document.getElementById("error-box").style.display = "block";
+        this.design.showInputError();
       } else {
-        document.getElementById("error-box").style.display = "none";
+        this.design.hideInputError();
         this.apiS.newGame(name).then((res) => {
           let game = res[0];
           this.games.push(game);
           this.design.cardBuilder(game);
           this.initCardClicks(game);
           this.updateGamesInProgress();
+          this.broadcastAddGame(game);
         });
       }
     }, false);
@@ -40,6 +96,7 @@ export default class Games {
   }
 
   displayGames () {
+    this.design.cleanCards();
     this.games.forEach(game => {
       this.design.cardBuilder(game);
       this.initCardClicks(game);
@@ -49,25 +106,19 @@ export default class Games {
   initCardClicks (game) {
     // Listen for trash button click
     document.getElementById(`trash-${game.id}`).addEventListener('click', () => {
-      console.log(game.id)
-      document.getElementById(`card-${game.id}`).remove();
-      this.apiS.deleteGame(game.id);
-      this.games = this.games.filter(x => x.id !== game.id);
-      this.updateGamesInProgress();
+      this.apiS.deleteGame(game.id).then(() => {
+        this.broadcastDeleteGame(game.id);
+      });
+      this.deleteCard(game.id);
     }, false);
 
     // Listen for card click
     document.getElementById(`card-content-${game.id}`).addEventListener('click', () => {
-      let g = this.games.find(x => x.id === game.id);
-      if (g.status === 'progress') {
-        g.status = 'done';
-        this.design.disableCard(game);
-      } else {
-        g.status = 'progress';
-        this.design.enableCard(game);
-      }
-      this.apiS.updateGame(game.id, g.status);
-      this.updateGamesInProgress();
+      var status = this.updateCardStatus(game.id);
+      this.apiS.updateGame(game.id, status).then(() => {
+        this.broadcastUpdateGame(game.id);
+      });
+      
     }, false);
   }
 
@@ -75,5 +126,25 @@ export default class Games {
     let res = this.games.filter(x =>  x.status === 'progress');
     res = res ? res.length : 0;
     this.design.displayNbrGamesInProgress(res);
+  }
+
+  updateCardStatus(id) {
+    let g = this.games.find(x => x.id === id);
+    
+    if (g.status === 'progress') {
+      g.status = 'done';
+      this.design.disableCard(g);
+    } else {
+      g.status = 'progress';
+      this.design.enableCard(g);
+    }
+    this.updateGamesInProgress();
+    return g.status;
+  }
+
+  deleteCard(id) {
+    document.getElementById(`card-${id}`).remove();
+    this.games = this.games.filter(x => x.id !== id);
+    this.updateGamesInProgress();
   }
 }
