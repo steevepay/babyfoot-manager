@@ -85,6 +85,17 @@ a {
   width: 50%;
   margin: auto;
   display:none;
+  margin-bottom: 14px;
+}
+
+#nbr-games{
+  width: 100px;
+  margin: auto;
+  background-color: white;
+  padding: 10px;
+  border-radius: 23px;
+  margin-bottom: -36px;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0 , .1);
 }
 
 /* INPUT CONTAINER */
@@ -92,11 +103,12 @@ a {
 #container-input {
   margin-bottom: 20px;
   display: inline-flex;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0 , .2);
 }
 
 #container-input > input {
   outline: none;
-  box-shadow: 0px 6px 10px rgba(0, 0, 0 , .2);
+  /* box-shadow: 0px 6px 10px rgba(0, 0, 0 , .2); */
   border: none;
   font-size: 20px;
   padding: 10px 20px;
@@ -118,7 +130,7 @@ a {
   color: white;
   background:#7f8ff4;
   transition: all 0.2s ease-in;
-  box-shadow: 0 0 10px 5px rgba(0, 0, 0, .1);
+  /* box-shadow: 0 0 10px 5px rgba(0, 0, 0, .1); */
   border-radius: 2px;
   padding: 12px 36px;
   border:0;
@@ -148,7 +160,7 @@ a {
 .card {
   display: inline-flex;
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   align-items: center;
   color: white;
   justify-content: center;
