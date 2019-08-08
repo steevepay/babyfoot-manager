@@ -206,10 +206,11 @@ a {
   margin-left: 7px;
   cursor: pointer;
   width: 25px;
+  transition: all 0.2s;
 }
 
 .btn-delete:hover {
-  background: #ffb3c0;
+  box-shadow: inset 0 0 4px 1px rgba(0, 0, 0, .3) !important;
   cursor: pointer;
 }
 
