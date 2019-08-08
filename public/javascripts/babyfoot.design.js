@@ -8,7 +8,7 @@ export default class Design {
   initColorTheme() {
     const colors = ['red', 'purple', 'grey', 'green', 'orange']
     const idcolor = Math.floor(Math.random() * (4 - 0 + 1)) + 0;
-    this.themeColor = `card-theme-${colors[idcolor]}`;
+    this.themeColor = `theme-${colors[idcolor]}`;
     document.getElementById("navbar").classList.add(this.themeColor);
     document.getElementById("btn-add").classList.add(`btn-${colors[idcolor]}`);
   }

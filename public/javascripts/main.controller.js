@@ -13,3 +13,9 @@ wss.socket.onmessage = event => {
     bfc[message.action](message.data)
   }
 }
+
+// window.scrollTo(0,document.querySelector("#list-messages-tchat").scrollHeight);
+// function gotoBottom(id){
+  var element = document.getElementById("list-messages-tchat");
+  element.scrollTop = element.scrollHeight - element.clientHeight;
+// }

@@ -1,0 +1,99 @@
+#container-tchat {
+  position: absolute;
+  
+  
+  bottom: 0;
+  right: 0;
+  /* left:0;
+  top:0; */
+  width: 330px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color:white;
+  box-shadow: 2px 3px 10px grey;
+}
+
+#header-tchat {
+  /* color:white; */
+  padding: 8px 4px 7px 8px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, .1);
+  transition: background-color 0.2s ease-in-out;
+}
+
+#header-tchat:hover {
+  background-color: #f2f3f5;
+}
+
+#body-tchat {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+  height: 308px;
+}
+
+#list-messages-tchat {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-x: hidden;
+  padding: 10px 8px;
+}
+
+#input-tchat {
+  position: relative;
+  
+}
+
+#inputs-tchat > input {
+  font-size: 15px;
+  width: 100%;
+  outline: none;
+  padding: 6px 18px;
+  border-left: none;
+  border-right: none;
+  border-bottom:none;
+  border-top: 1px solid #8080805e;
+}
+
+#label-input-from {
+  position: absolute;
+  margin-top: 8px;
+  margin-left: 19px;
+  color: grey;
+}
+
+#input-from {
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  margin: auto;
+  display: flex;
+  padding-left: 60px !important;
+}
+
+.from {
+  font-size: 10px;
+  color:#8080809c
+}
+
+.msg {
+  margin:5px 0px;
+  width: 70%;
+}
+
+.msg:hover .from {
+  color: grey;
+}
+
+.msg-user {
+  display: flex;
+  text-align: right;
+  float: right;
+  flex-direction: column;
+  margin-right: 0;
+  margin-left: auto;
+}
