@@ -2,7 +2,8 @@
   position: absolute;
   
   
-  bottom: 0;
+      bottom: -300px;
+  /* bottom: 0; */
   right: 0;
   /* left:0;
   top:0; */
@@ -11,6 +12,7 @@
   border-top-right-radius: 10px;
   background-color:white;
   box-shadow: 2px 3px 10px grey;
+  transition: all 0.3s ease-in-out;
 }
 
 #header-tchat {
@@ -33,7 +35,7 @@
   overflow-x: hidden;
   position: relative;
   width: 100%;
-  height: 308px;
+  height: 300px;
 }
 
 #list-messages-tchat {
@@ -41,7 +43,7 @@
   flex-direction: column;
   height: 100%;
   overflow-x: hidden;
-  padding: 10px 8px;
+  padding: 10px;
 }
 
 #input-tchat {

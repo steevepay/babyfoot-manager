@@ -19,3 +19,12 @@ wss.socket.onmessage = event => {
   var element = document.getElementById("list-messages-tchat");
   element.scrollTop = element.scrollHeight - element.clientHeight;
 // }
+
+  document.getElementById("header-tchat").addEventListener('click', () => {
+    let tchat = document.getElementById("container-tchat");
+    if (tchat.style.bottom == "0px") {
+      tchat.style.bottom = "-300px";
+    } else {
+      tchat.style.bottom = "0px";
+    }
+  }, false)
