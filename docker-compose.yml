@@ -21,14 +21,12 @@ services:
     container_name: babyfoot.server
     ports:
       - "3010:3000"
-    links:
-      - bf-postgre
     networks:
       - default
     environment:
-      - VIRTUAL_HOST=babyfoot.steevep.com
-      - LETSENCRYPT_HOST=babyfoot.steevep.com
-      - LETSENCRYPT_EMAIL=steeve.payraudeau@gmail.com
+      - VIRTUAL_HOST=${VIRTUAL_HOST}
+      - LETSENCRYPT_HOST=${LETSENCRYPT_HOST}
+      - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL}
 
 networks:
   default:
