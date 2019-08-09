@@ -60,10 +60,6 @@
   font-size: 15px;
 }
 
-#container-input > #btn-add:hover {
-  background: #7484ec;
-}
-
 #container-input > #btn-add:active {
   background:#7f8ff4;
   box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, .2) !important;
