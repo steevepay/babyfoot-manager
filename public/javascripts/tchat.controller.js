@@ -3,8 +3,8 @@ import TchatDesign from './tchat.design.js'
 
 export default class TchatController {
   
-  constructor(ws) {
-    this.tdesign = new TchatDesign();
+  constructor(ws, colorTheme) {
+    this.tdesign = new TchatDesign(colorTheme);
     this.messages =  [];
     this.receiveNotifWriting = true;
     this.sendNotifWriting = true;
@@ -22,7 +22,6 @@ export default class TchatController {
   initInputAddMessage() {
     const input = document.getElementById('input-message');
     input.addEventListener('keydown', (e) => {
-      console.log(e.keyCode);
       if (e.keyCode === 13) {
         let name = this.tdesign.getFrom();
         let text = this.tdesign.getMessage();

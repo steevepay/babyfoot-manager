@@ -104,11 +104,12 @@
   padding: 4px 8px;
   border-radius: 6px;
   margin-right: auto;
-  border: 1px solid #dcfff9;
+  background-color: #f1f0f0;
 }
 
 .msg:hover {
-  border-color:#8affea !important;
+  /* border-color:#8affea !important; */
+  background-color:#dedede;
 }
 
 .msg-user {
@@ -117,7 +118,6 @@
   flex-direction: column;
   margin-right: 0;
   margin-left: auto;
-  background-color: #dcfff9 !important;
   box-shadow:none;
 }
 

@@ -1,6 +1,7 @@
 export default class TchatDesign {
 
-  constructor() {
+  constructor(colorTheme) {
+    this.colorTheme = colorTheme;
     this.initClickTchat();
   }
 
@@ -27,6 +28,7 @@ export default class TchatDesign {
     msgbox.classList.add("msg");
     if (user) {
       msgbox.classList.add("msg-user");
+      msgbox.classList.add(`bg-light-${this.colorTheme}`);
     }
 
     let from = document.createElement("div"); 

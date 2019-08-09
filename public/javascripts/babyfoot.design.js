@@ -1,16 +1,14 @@
 export default class BfDesign {
 
-  constructor () {
-    this.themeColor = '';
+  constructor (colorTheme) {
+    this.colorTheme = colorTheme;
+    this.classColor = `theme-${colorTheme}`;
     this.initColorTheme();
   }
 
   initColorTheme() {
-    const colors = ['red', 'purple', 'grey', 'green', 'orange']
-    const idcolor = Math.floor(Math.random() * (4 - 0 + 1)) + 0;
-    this.themeColor = `theme-${colors[idcolor]}`;
-    document.getElementById("navbar").classList.add(this.themeColor);
-    document.getElementById("btn-add").classList.add(`btn-${colors[idcolor]}`);
+    document.getElementById("navbar").classList.add(this.classColor);
+    document.getElementById("btn-add").classList.add(`btn-${this.colorTheme}`);
   }
 
   disableCard (game) {
@@ -42,7 +40,7 @@ export default class BfDesign {
     let card = document.createElement("div"); 
     card.id = `card-${game.id}`;
     card.classList.add("card");
-    card.classList.add(this.themeColor);
+    card.classList.add(this.classColor);
 
     let cardcontent = document.createElement("div"); 
     cardcontent.classList.add("card-content");

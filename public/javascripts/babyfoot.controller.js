@@ -3,9 +3,9 @@ import BfDesign from './babyfoot.design.js'
 
 export default class BabyfootController {
   
-  constructor(ws) {
+  constructor(ws, colorTheme) {
+    this.bfdesign = new BfDesign(colorTheme);
     this.apiS = new apiService();
-    this.bfdesign = new BfDesign();
     this.games =  [];
     /** Websockets */
     this.ws = ws;
