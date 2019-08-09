@@ -10,9 +10,16 @@ host: "localhost:8080"
 basePath: "/api/v1"
 schemes:
 - "http"
+tags:
+- name: "games"
+  description: "endpoints to manage the babyfoot games"
+- name: "tchat"
+  description: "endpoints for messaging app"
 paths:
   /games:
     get:
+      tags:
+      - "games"
       summary: Get all games
       responses:
         200:
@@ -24,6 +31,8 @@ paths:
         500:
           description: "Internal server error"
     post:
+      tags:
+      - "games"
       summary: "Add a new game"
       description: ""
       operationId: "addGame"
@@ -34,7 +43,7 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: "Game object that needs to be added to the store"
+        description: "Game object."
         required: true
         schema:
           $ref: "#/definitions/NewGame"
@@ -50,6 +59,8 @@ paths:
           description: "Internal server error"
   /games/{gameId}:
     patch:
+      tags:
+      - "games"
       summary: "Update an existing game"
       description: ""
       operationId: "updateGame"
@@ -80,6 +91,8 @@ paths:
         500:
           description: "Internal server error"
     delete:
+      tags:
+      - "games"
       summary: "Deletes a game"
       description: ""
       operationId: "deleteGame"
@@ -101,7 +114,47 @@ paths:
           description: "Game not found"
         500:
           description: "Internal server error"
-
+  /messages:
+    get:
+      tags:
+      - "tchat"
+      summary: "Get all messages from the tchat"
+      responses:
+        200:
+          description: Return all messages
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Message"
+        500:
+          description: "Internal server error"
+    post:
+      tags:
+      - "tchat"
+      summary: "Add a new message on the tchat"
+      description: ""
+      operationId: "addMessage"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Message object with the user name and message."
+        required: true
+        schema:
+          $ref: "#/definitions/NewMessage"
+      responses:
+        200:
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/Message'
+        400:
+          description: "Bad Request - Invalid input"
+        500:
+          description: "Internal server error"
 definitions:
   Game:
     type: "object"
@@ -135,3 +188,32 @@ definitions:
         enum:
         - "progress"
         - "done"
+  Message:
+    type: "object"
+    required:
+    - "message"
+    - "name"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+        example: "John"
+      message:
+        type: "string"
+        description: "Game status"
+        example: "Hello there!"
+  NewMessage:
+    type: "object"
+    required:
+    - "message"
+    - "name"
+    properties:
+      name:
+        type: "string"
+        example: "John"
+      message:
+        type: "string"
+        description: "Game status"
+        example: "Hello there!"
