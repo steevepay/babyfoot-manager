@@ -73,6 +73,11 @@
   text-align: center;
 }
 
+/* Container Card List */
+#container-list {
+  padding-bottom: 50px;
+}
+
 /* CARD PLAYER */
 
 .card {
