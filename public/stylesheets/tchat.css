@@ -17,7 +17,7 @@
   /* color:white; */
   display: flex;
   align-items: center;
-  padding: 9px 13px;
+  padding: 10px 13px;
   font-size: 13px;
   font-family: 'Rubik', sans-serif !important;
   border-top-left-radius: 10px;
@@ -188,7 +188,8 @@
   }
 
   #header-tchat {
-    font-size: 15px;
+    font-size: 18px;
+    /* padding: 10px 13px; */
   }
 
   #input-from {
