@@ -20,7 +20,7 @@ services:
     command: "npm start"
     container_name: babyfoot.server
     ports:
-      - "3010:3000"
+      - "${PORT}:${PORT}"
     networks:
       - default
     environment:

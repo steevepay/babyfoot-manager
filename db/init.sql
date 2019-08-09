@@ -1,6 +1,13 @@
 CREATE TABLE games 
 (
   ID SERIAL PRIMARY KEY, 
-  name VARCHAR(30) NOT NULL, 
-  status VARCHAR(30) DEFAULT 'progress'
+  name VARCHAR(255) NOT NULL, 
+  status VARCHAR(255) DEFAULT 'progress'
+);
+
+CREATE TABLE messages
+(
+  ID SERIAL PRIMARY KEY, 
+  name VARCHAR(255) NOT NULL, 
+  message TEXT NOT NULL
 );

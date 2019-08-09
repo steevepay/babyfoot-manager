@@ -40,7 +40,7 @@
 }
 
 .bg-light-purple {
-  background-color: #c200ff36;
+  background-color: #c200ff36 !important;
 }
 
 .theme-grey{

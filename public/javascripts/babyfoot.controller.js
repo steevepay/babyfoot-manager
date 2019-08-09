@@ -1,4 +1,4 @@
-import apiService from './api.service.js';
+import apiService from './babyfoot.api.service.js';
 import BfDesign from './babyfoot.design.js'
 
 export default class BabyfootController {

@@ -23,8 +23,9 @@ export default class TchatDesign {
     }
   }
 
-  addMessage(name, message, user) {
+  addMessage(id, name, message, user, msgPosition) {
     let msgbox = document.createElement("div"); 
+    msgbox.id = `msg-${id}`;
     msgbox.classList.add("msg");
     if (user) {
       msgbox.classList.add("msg-user");
@@ -42,8 +43,14 @@ export default class TchatDesign {
     msgbox.appendChild(msg);
 
     let tchat = document.getElementById('list-messages-tchat');
-    tchat.appendChild(msgbox);
-    this.scrollTchatBottom();
+    if (msgPosition === 'top') {
+      tchat.insertBefore(msgbox, tchat.firstElementChild);
+    } else if (msgPosition === 'bottom') {
+      tchat.appendChild(msgbox);
+    }
+
+    // var listcards = document.getElementById("container-list");
+    // listcards.insertBefore(card, listcards.firstElementChild);
   }
 
   getFrom() {
