@@ -59,5 +59,14 @@ export default class TchatDesign {
   displaySomebodyWritingNotif(value) {
     document.getElementById('notif-writing').style.display = value ? 'block' : 'none';
   }
-  
+
+  displayErrorMissingInput(value, target) {
+    let input = document.getElementById(`input-${target}`);
+    if (value) {
+      input.classList.add('input-error');
+    } else {
+      input.classList.remove('input-error');
+    }
+
+  }
 }

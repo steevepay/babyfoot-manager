@@ -1,7 +1,5 @@
 import TchatDesign from './tchat.design.js'
 
-// tdesign.scrollTchatBottom();
-// tdesign.addMessage('Steeve', 'wow, ça marche vraiment trop bien !!!', true);
 
 export default class TchatController {
   
@@ -26,11 +24,13 @@ export default class TchatController {
       if (e.keyCode === 13) {
         let name = this.tdesign.getFrom();
         let text = this.tdesign.getMessage();
-        const msg = this.buildMessage(name, text, true)
-        this.addMessage(msg);
-        this.tdesign.cleanMessage();
-        msg.user = false;
-        this.ws.broadcast(this.wsId, 'addMessage', msg);
+        if (this.checkInputsErrors(name, text)) {
+          const msg = this.buildMessage(name, text, true)
+          this.addMessage(msg);
+          this.tdesign.cleanMessage();
+          msg.user = false;
+          this.ws.broadcast(this.wsId, 'addMessage', msg);
+        }
       } else if (this.sendNotifWriting){
         this.sendNotifWriting = false;
         this.ws.broadcast(this.wsId, 'notifSomebodyWriting', null);
@@ -38,18 +38,6 @@ export default class TchatController {
           this.sendNotifWriting = true;
         }, 2000);
       }
-      // const format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
-      // if (name === "" || format.test(name)) {
-      //   this.bfdesign.showInputError();
-      // } else {
-      //   this.bfdesign.hideInputError();
-      //   this.apiS.newGame(name).then((res) => {
-      //     document.getElementById('input-game').value = '';
-      //     let game = res[0];
-      //     this.addCard(game)
-      //     this.ws.broadcast(this.wsId, 'addCard', game);
-      //   });
-      // }
     }, false);
   }
 
@@ -75,5 +63,19 @@ export default class TchatController {
         this.tdesign.displaySomebodyWritingNotif(!this.receiveNotifWriting);
       }, 2000);
     }
+  }
+
+  checkInputsErrors(name, text) {
+    if (!name || name === '') {
+      this.tdesign.displayErrorMissingInput(true, 'from');
+      return false;
+    } else if (!text || text === '') {
+      this.tdesign.displayErrorMissingInput(false, 'from');
+      this.tdesign.displayErrorMissingInput(true, 'message');
+      return false;
+    }
+    this.tdesign.displayErrorMissingInput(false, 'from');
+    this.tdesign.displayErrorMissingInput(false, 'message');
+    return true;
   }
 }
