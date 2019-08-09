@@ -1,22 +1,22 @@
 #container-tchat {
-  position: absolute;
-  
-  
-      bottom: -300px;
+  position: fixed;
+  bottom: -300px;
   /* bottom: 0; */
-  right: 0;
+  right: 20px;
   /* left:0;
   top:0; */
   width: 330px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background-color:white;
-  box-shadow: 2px 3px 10px grey;
+  box-shadow: 0px 1px 5px grey;
   transition: all 0.3s ease-in-out;
 }
 
 #header-tchat {
   /* color:white; */
+  display: flex;
+  align-items: center;
   padding: 9px;
   font-size: 13px;
   font-family: 'Rubik', sans-serif !important;
@@ -81,23 +81,103 @@
 
 .from {
   font-size: 10px;
-  color:#8080809c
+  /* color:#8080809c */
+  color: grey;
+}
+
+.from-error {
+  border-color: red;
+  border-bottom: 1px red solid;
 }
 
 .msg {
-  margin:5px 0px;
-  width: 70%;
+  z-index:-1;
+  margin: 5px 0px;
+  max-width: 70%;
+  text-align: justify;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin-right: auto;
+  border: 1px solid #dcfff9;
+}
+
+.msg:hover {
+  border-color:#8affea;
 }
 
 .msg:hover .from {
-  color: grey;
+  
 }
 
 .msg-user {
   display: flex;
-  text-align: right;
   float: right;
   flex-direction: column;
   margin-right: 0;
+  margin-right: none;
   margin-left: auto;
+  background-color: #dcfff9 !important;
+  box-shadow:none;
+}
+
+#title-tchat{
+
+}
+
+#notif-writing {
+  margin-left: auto;
+  display:none;
+  color:grey;
+  font-size:9px;
+  -webkit-animation: color_change 5s infinite;
+	-moz-animation: color_change 5s infinite;
+	-ms-animation: color_change 5s infinite;
+	-o-animation: color_change 5s infinite;
+	animation: color_change 5s infinite;
+}
+
+@-webkit-keyframes color_change {
+	
+  0% { color: #db59ea; }
+  15% { color: #2f5498; }
+  25% { color: #00fff3; }
+  50% { color:  #00ea72;}
+  75% { color: #ff7d4b; }
+  100% { color: #de2545; }
+}
+@-moz-keyframes color_change {
+	
+  0% { color: #db59ea; }
+  15% { color: #2f5498; }
+  25% { color: #00fff3; }
+  50% { color:  #00ea72;}
+  75% { color: #ff7d4b; }
+  100% { color: #de2545; }
+}
+@-ms-keyframes color_change {
+	
+  0% { color: #db59ea; }
+  15% { color: #2f5498; }
+  25% { color: #00fff3; }
+  50% { color:  #00ea72;}
+  75% { color: #ff7d4b; }
+  100% { color: #de2545; }
+}
+@-o-keyframes color_change {
+	
+  0% { color: #db59ea; }
+  15% { color: #2f5498; }
+  25% { color: #00fff3; }
+  50% { color:  #00ea72;}
+  75% { color: #ff7d4b; }
+  100% { color: #de2545; }
+}
+@keyframes color_change {
+	
+  0% { color: #db59ea; }
+  15% { color: #2f5498; }
+  25% { color: #00fff3; }
+  50% { color:  #00ea72;}
+  75% { color: #ff7d4b; }
+  100% { color: #de2545; }
 }

@@ -1,14 +1,15 @@
 import apiService from './api.service.js';
-import design from './babyfoot.design.js'
+import BfDesign from './babyfoot.design.js'
 
 export default class BabyfootController {
   
   constructor(ws) {
     this.apiS = new apiService();
-    this.design = new design();
+    this.bfdesign = new BfDesign();
     this.games =  [];
+    /** Websockets */
     this.ws = ws;
-    this.wsTypeName = 'wb-message-bf';
+    this.wsId = 'wb-message-bf';
     this.wsActions = ['addCard', 'updateCard', 'deleteCard'];
   }
   
@@ -20,9 +21,9 @@ export default class BabyfootController {
 
   async initGames () {
     this.games = await this.apiS.getGames();
-    this.design.cleanCards();
+    this.bfdesign.cleanCards();
     this.games.forEach(game => {
-      this.design.cardBuilder(game);
+      this.bfdesign.cardBuilder(game);
       this.initCardClicks(game);
     });
   }
@@ -32,14 +33,14 @@ export default class BabyfootController {
       let name = document.getElementById('input-game').value;
       const format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
       if (name === "" || format.test(name)) {
-        this.design.showInputError();
+        this.bfdesign.showInputError();
       } else {
-        this.design.hideInputError();
+        this.bfdesign.hideInputError();
         this.apiS.newGame(name).then((res) => {
           document.getElementById('input-game').value = '';
           let game = res[0];
           this.addCard(game)
-          this.ws.broadcast(this.wsTypeName, 'addCard', game);
+          this.ws.broadcast(this.wsId, 'addCard', game);
         });
       }
     }, false);
@@ -49,7 +50,7 @@ export default class BabyfootController {
     // Listen for trash button click
     document.getElementById(`trash-${game.id}`).addEventListener('click', () => {
       this.apiS.deleteGame(game.id).then(() => {
-        this.ws.broadcast(this.wsTypeName, 'deleteCard', game.id)
+        this.ws.broadcast(this.wsId, 'deleteCard', game.id)
       });
       this.deleteCard(game.id);
     }, false);
@@ -58,7 +59,7 @@ export default class BabyfootController {
     document.getElementById(`card-content-${game.id}`).addEventListener('click', () => {
       var status = this.updateCard(game.id);
       this.apiS.updateGame(game.id, status).then(() => {
-        this.ws.broadcast(this.wsTypeName, 'updateCard', game.id)
+        this.ws.broadcast(this.wsId, 'updateCard', game.id)
       });
       
     }, false);
@@ -67,12 +68,12 @@ export default class BabyfootController {
   updateGamesInProgress() {
     let res = this.games.filter(x =>  x.status === 'progress');
     res = res ? res.length : 0;
-    this.design.displayNbrGamesInProgress(res);
+    this.bfdesign.displayNbrGamesInProgress(res);
   }
 
   addCard(game) {
     this.games.push(game);
-    this.design.cardBuilder(game);
+    this.bfdesign.cardBuilder(game);
     this.initCardClicks(game);
     this.updateGamesInProgress();
   }
@@ -82,10 +83,10 @@ export default class BabyfootController {
     
     if (g.status === 'progress') {
       g.status = 'done';
-      this.design.disableCard(g);
+      this.bfdesign.disableCard(g);
     } else {
       g.status = 'progress';
-      this.design.enableCard(g);
+      this.bfdesign.enableCard(g);
     }
     this.updateGamesInProgress();
     return g.status;

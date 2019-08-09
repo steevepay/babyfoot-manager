@@ -1,4 +1,4 @@
-export default class Design {
+export default class BfDesign {
 
   constructor () {
     this.themeColor = '';
