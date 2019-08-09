@@ -21,7 +21,8 @@ export default class TchatController {
 
   initInputAddMessage() {
     const input = document.getElementById('input-message');
-    input.addEventListener('keypress', (e) => {
+    input.addEventListener('keydown', (e) => {
+      console.log(e.keyCode);
       if (e.keyCode === 13) {
         let name = this.tdesign.getFrom();
         let text = this.tdesign.getMessage();
@@ -32,11 +33,7 @@ export default class TchatController {
           msg.user = false;
           this.ws.broadcast(this.wsId, 'addMessage', msg);
         }
-      }
-    }, false);
-
-    input.addEventListener('keyup', () => {
-      if (this.sendNotifWriting){
+      } else if (this.sendNotifWriting){
         this.sendNotifWriting = false;
         this.ws.broadcast(this.wsId, 'notifSomebodyWriting', null);
         setTimeout(() => {
