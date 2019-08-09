@@ -55,10 +55,9 @@
 }
 
 #inputs-tchat > input {
-  font-size: 15px;
+  
   width: 100%;
   outline: none;
-  padding: 6px 18px;
   border-left: none;
   border-right: none;
   border-bottom:none;
@@ -67,17 +66,25 @@
 
 #label-input-from {
   position: absolute;
-  margin-top: 8px;
+  margin-top: 4px;
   margin-left: 19px;
   color: grey;
 }
 
 #input-from {
+  padding: 3px 18px;
+  font-size: 13px;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
   margin: auto;
   display: flex;
   padding-left: 60px !important;
+}
+
+#input-message {
+  font-size: 15px;
+  padding: 12px 18px;
+  padding-bottom: 14px;
 }
 
 .from {
