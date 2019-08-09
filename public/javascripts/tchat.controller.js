@@ -36,7 +36,6 @@ export default class TchatController {
     }, false);
 
     input.addEventListener('keyup', () => {
-      console.log('lala');
       if (this.sendNotifWriting){
         this.sendNotifWriting = false;
         this.ws.broadcast(this.wsId, 'notifSomebodyWriting', null);

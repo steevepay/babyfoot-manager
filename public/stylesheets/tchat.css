@@ -66,13 +66,13 @@
 
 #input-from-label {
   position: absolute;
-  margin-top: 4px;
+  margin-top: 7px;
   margin-left: 19px;
   color: grey;
 }
 
 #input-from {
-  padding: 3px 18px;
+  padding: 6px 18px;
   font-size: 13px;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
