@@ -208,5 +208,10 @@
     font-size:18px;
   }
 
-
+  #notif-writing {
+    position: absolute;
+    bottom: 98px;
+    margin-left: auto;
+    left: 15px;
+  }
 }
