@@ -1,16 +1,16 @@
 
-import ColorTheme from './colortheme.design.js';
-import WS from './websocket.service.js';
-import BabyfootController from './babyfoot.controller.js';
-import TchatController from './tchat.controller.js';
+import MainDesign from './main.design.js';
+import WS from './services/websocket.service.js';
+import BabyfootController from './babyfoot/babyfoot.controller.js';
+import TchatController from './tchat/tchat.controller.js';
 
-const theme = new ColorTheme();
+const design = new MainDesign();
 const wss = new WS();
 
-const bfc = new BabyfootController(wss, theme.getThemeColor());
+const bfc = new BabyfootController(wss, design.getThemeColor());
 bfc.init();
 
-const tchatc = new TchatController(wss, theme.getThemeColor());
+const tchatc = new TchatController(wss, design.getThemeColor());
 tchatc.init();
 
 wss.socket.onmessage = event => {

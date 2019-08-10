@@ -113,9 +113,9 @@
 }
 
 .msg-user {
-  display: flex;
+  /* display: flex; */
   float: right;
-  flex-direction: column;
+  /* flex-direction: column; */
   margin-right: 0;
   margin-left: auto;
   box-shadow:none;
