@@ -33,7 +33,6 @@
 #body-tchat {
   display: flex;
   flex-direction: column;
-  height: 100%;
   overflow-x: hidden;
   position: relative;
   width: 100%;
@@ -46,7 +45,16 @@
   flex-direction: column;
   height: 100%;
   overflow-x: hidden;
-  padding: 10px;
+  overflow-y: scroll;
+  padding-right:10px;
+  padding-left:10px;
+}
+
+/* NEW */
+#list-messages-tchat::before,
+#list-messages-tchat::after {
+  flex: 0 0 5px;
+  content: '';
 }
 
 #input-tchat {
@@ -98,7 +106,8 @@
 }
 
 .msg {
-  margin: 5px 0px;
+  margin-bottom: 5px;
+  margin-top: 5px;
   max-width: 70%;
   text-align: justify;
   padding: 4px 8px;
