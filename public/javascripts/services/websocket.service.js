@@ -1,11 +1,39 @@
 export default class WebSockets {
   constructor () {
-    const protocol = window.location.protocol.includes('https:') ? 'wss:' : 'ws:'
-    this.socket = new WebSocket(`${protocol}//${window.location.host}`);
+    this.protocol = window.location.protocol.includes('https:') ? 'wss:' : 'ws:'
+    this.autoReconnectInterval = 5 * 1000; //ms
+    this.socket = null;
+    this.connectSocket();
+  }
 
-    this.socket.onerror = error => {
-      console.log(`WebSocket error: ${error}`)
+  connectSocket() 
+  {
+    this.socket = new WebSocket(`${this.protocol}//${window.location.host}`);
+
+    this.socket.onopen = () => {
+      console.log('WebSocketClient: Connected!')
+      console.log(this.socket.readyState);
     }
+    
+    this.socket.onerror = e => {
+      console.log(`WebSocket error: ${e}`)
+      this.socket.close();
+      this.reconnect();
+    }
+    
+    this.socket.onclose = e => {
+      console.log(e);
+      console.log("WebSocketClient: closed");
+      this.reconnect();
+    }
+  }
+  
+  reconnect () {
+    console.log(`WebSocketClient: retry in ${this.autoReconnectInterval}ms`);
+    setTimeout(() => {
+      console.log("WebSocketClient: reconnecting...");
+      this.connectSocket();
+    },this.autoReconnectInterval);
   }
 
   broadcast(type, action, data) {
@@ -14,7 +42,10 @@ export default class WebSockets {
       'action': action,
       'data': data
     }
-    // console.log(message);
-    this.socket.send(JSON.stringify(message)); 
+    try{
+      this.socket.send(JSON.stringify(message));
+    }catch (e){
+      console.log(e);
+    }
   }
 }
