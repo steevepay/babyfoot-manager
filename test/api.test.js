@@ -178,7 +178,7 @@ describe('Babyfoot Manager API', () => {
       // DELETE
       const status = "";
       res = await chai.request(server)
-        .delete(endpointid + "fewfwe");
+        .delete(endpointid + "ThisIsNotANumber");
       res.should.have.status(400);
     })
 
