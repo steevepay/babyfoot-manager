@@ -28,7 +28,7 @@ LETSENCRYPT_EMAIL=
 
 to run the project:
 ```shell
-docker-compose up -d
+$ docker-compose up -d
 ```
 
 to run the unit tests, you must keep the containers up:
