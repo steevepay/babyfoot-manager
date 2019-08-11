@@ -50,10 +50,13 @@
   padding-left:10px;
 }
 
-/* NEW */
-#list-messages-tchat::before,
-#list-messages-tchat::after {
+#list-messages-tchat::before{
   flex: 0 0 5px;
+  content: '';
+}
+
+#list-messages-tchat::after {
+  flex: 0 0 10px;
   content: '';
 }
 
