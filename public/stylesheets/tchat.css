@@ -56,7 +56,7 @@
 }
 
 #list-messages-tchat::after {
-  flex: 0 0 10px;
+  flex: 0 0 12px;
   content: '';
 }
 
