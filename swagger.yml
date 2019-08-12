@@ -119,6 +119,19 @@ paths:
       tags:
       - "tchat"
       summary: "Get all messages from the tchat"
+      parameters:
+        - in: query
+          name: page
+          required: true
+          schema:
+            type: integer
+          description: The actual pagination of the tchat.
+        - in: query
+          name: limit
+          required: true
+          schema:
+            type: integer
+          description: The numbers of messages to return.
       responses:
         200:
           description: Return all messages
