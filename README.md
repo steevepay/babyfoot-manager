@@ -7,17 +7,19 @@
 A Babyfoot manager is a web application aim to manage your babyfoot games. The application allows users to create games and update the game status (in progress / done) with other users in real-time.
 You can tchat with other people and make the babyfoot game crazy !!
 
-In order to run and deploy quickly the application you may have install Docker and Docker-compose. Then follow the [setup through docker-compose](#installation-through-docker-compose) section. It easier to manage the project through containers. When you're making a file edit, it's editing the file on the container automatically.
+In order to run and deploy quickly the application you may install Docker and Docker-compose. Then follow the [setup through docker-compose](#installation-through-docker-compose) section. It easier to manage the project through containers. When you're making a file edit, it's editing the file on the container automatically.
 
 Otherwise, you can setup and run the project locally on your laptop without containers. Follow the [Installation without docker-compose](#installation-without-docker-compose) section.
 
 ## Babyfoot API Documentation
 
-To view the API documentation, visit babyfoot.steeve.com/api/v1/. You can access locally to the documentation after running the project at the url [localhost:3010/api/v1](http://localhost:3010/api/v1)
+To view the API documentation, visit babyfoot.steevep.com/api/v1/. You can access locally to the documentation after running the project at the url [localhost:3010/api/v1](http://localhost:3010/api/v1)
 
 ## Getting Started
 
 ### Installation through docker-compose
+
+Make sure you have installed docker-compose and docker before continu, otherwhise [install here](https://docs.docker.com/install/).
 
 You must create a the root directory an env file called ".env" with the following configuration:
 ```js
