@@ -124,7 +124,6 @@ Within the download you'll find the following directories and files:
     |-- package.json',
     |-- api',
     |   |-- index.js',
-    |   |-- queries',
     |-- bin',
     |   |-- www',
     |-- db',
