@@ -85,7 +85,7 @@ export default class BabyfootController {
         this.bfdesign.hideInputError();
         this.apiS.newGame(name).then((res) => {
           document.getElementById('input-game').value = '';
-          let game = res[0];
+          const game = res[0];
           this.addCard(game)
           this.ws.broadcast(this.wsId, 'addCard', game);
         });

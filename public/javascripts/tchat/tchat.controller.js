@@ -119,7 +119,7 @@ export default class TchatController {
         let text = this.tdesign.getMessage();
         if (this.checkInputsErrors(name, text)) {
           this.apiS.newMessage(name, text).then(res => {
-            let msg = res[0];
+            const msg = res[0];
             msg['user'] = true;
             this.addMessage(msg);
             this.tdesign.cleanMessage();
