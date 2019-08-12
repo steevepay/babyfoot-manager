@@ -86,3 +86,7 @@ To launch the tests, execute the command:
 ```shell
 $ npm test
 ```
+
+## Project Structure
+
+![structure schema](./structure.jpg)
