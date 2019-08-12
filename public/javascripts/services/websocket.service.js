@@ -1,4 +1,16 @@
+/**
+ * @description Websocket overload to manage communication between clients.
+ *
+ * @export
+ * @class WebSockets
+ */
 export default class WebSockets {
+
+
+  /**
+   * Creates an instance of WebSockets. Initialise protocole and connect socket client.
+   * @memberof WebSockets
+   */
   constructor () {
     this.protocol = window.location.protocol.includes('https:') ? 'wss:' : 'ws:'
     this.autoReconnectInterval = 5 * 1000; //ms
@@ -6,6 +18,12 @@ export default class WebSockets {
     this.connectSocket();
   }
 
+
+  /**
+   * @description Instantiate web socket client and connect. Handle callback methods on events (close/error). Try automatically to reconnect.
+   *
+   * @memberof WebSockets
+   */
   connectSocket() 
   {
     this.socket = new WebSocket(`${this.protocol}//${window.location.host}`);
@@ -28,6 +46,12 @@ export default class WebSockets {
     }
   }
   
+  
+  /**
+   * @description Reconnect method calling the connectSocket Method after a time interval.
+   *
+   * @memberof WebSockets
+   */
   reconnect () {
     console.log(`WebSocketClient: retry in ${this.autoReconnectInterval}ms`);
     setTimeout(() => {
@@ -36,6 +60,15 @@ export default class WebSockets {
     },this.autoReconnectInterval);
   }
 
+
+  /**
+   * @description Broadcast message to other websocket clients.
+   *
+   * @param {String} type Type of the broadcast to identify the sender and receiver.
+   * @param {String} action Method to call on receive.
+   * @param {String} data Parameters
+   * @memberof WebSockets
+   */
   broadcast(type, action, data) {
     var message = {
       'type': type,

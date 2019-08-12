@@ -1,16 +1,42 @@
+
+/**
+ * Manage and update the babyfoot manager view.
+ *
+ * @export
+ * @class BfDesign
+ */
 export default class BfDesign {
 
+
+  /**
+   * Creates an instance of BfDesign and initialise colors.
+   * @param {String} colorTheme
+   * @memberof BfDesign
+   */
   constructor (colorTheme) {
     this.colorTheme = colorTheme;
     this.classColor = `theme-${colorTheme}`;
     this.initColorTheme();
   }
 
+
+  /**
+   * @description Initialise colors on the view.
+   *
+   * @memberof BfDesign
+   */
   initColorTheme() {
     document.getElementById("navbar").classList.add(this.classColor);
     document.getElementById("btn-add").classList.add(`btn-${this.colorTheme}`);
   }
 
+
+  /**
+   * @description Disable a card game: Change the text to 'finished', update avatars and greyscale.
+   *
+   * @param {Object} game Babyfoot game object.
+   * @memberof BfDesign
+   */
   disableCard (game) {
     let players = this.getPlayersName(game.name);
     document.getElementById(`card-${game.id}`).classList.add("greyscale");
@@ -19,6 +45,13 @@ export default class BfDesign {
     document.getElementById(`player-two-${game.id}`).data = `https://avatars.dicebear.com/v2/human/${players[1]}.svg?options[mood][]=sad`;
   }
 
+
+  /**
+   * @description Enable a card game: Change the text to 'Game in progress', update avatars and greyscale.
+   *
+   * @param {Object} game Babyfoot game object.
+   * @memberof BfDesign
+   */
   enableCard (game) {
     let players = this.getPlayersName(game.name);
     document.getElementById(`card-${game.id}`).classList.remove("greyscale");
@@ -27,6 +60,12 @@ export default class BfDesign {
     document.getElementById(`player-two-${game.id}`).data = `https://avatars.dicebear.com/v2/human/${players[1]}.svg?options[mood][]=happy`
   }
 
+
+  /**
+   * @description Remove all the card on the web page.
+   *
+   * @memberof BfDesign
+   */
   cleanCards() {
     var node = document.getElementById("container-list");
     while (node.firstChild) {
@@ -34,6 +73,13 @@ export default class BfDesign {
     }
   }
 
+
+  /**
+   * Create a new card on the view.
+   *
+   * @param {Object} game Babyfoot game object.
+   * @memberof BfDesign
+   */
   cardBuilder (game) {
     let players = this.getPlayersName(game.name);
 
@@ -95,6 +141,14 @@ export default class BfDesign {
     listcards.insertBefore(card, listcards.firstElementChild);
   }
 
+
+  /**
+   * @description Create an array of the players names.
+   *
+   * @param {String} name Name inside the input.
+   * @returns
+   * @memberof BfDesign
+   */
   getPlayersName (name) {
     let players;
     if (name.includes(' vs ')) {
@@ -105,14 +159,34 @@ export default class BfDesign {
     return players;
   }
 
+
+  /**
+   * @description display the number of games in progress.
+   *
+   * @param {Number} nbr Number of games in progress.
+   * @memberof BfDesign
+   */
   displayNbrGamesInProgress(nbr) {
     document.getElementById("nbr-games").innerHTML = `${nbr} games`;
   }
 
+
+
+  /**
+   * @description Display error message.
+   *
+   * @memberof BfDesign
+   */
   showInputError() {
     document.getElementById("error-box").style.display = "block";
   }
 
+
+  /**
+   * @description Hide error message.
+   *
+   * @memberof BfDesign
+   */
   hideInputError() {
     document.getElementById("error-box").style.display = "none";
   }

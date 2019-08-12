@@ -5,7 +5,7 @@ import BabyfootController from './babyfoot/babyfoot.controller.js';
 import TchatController from './tchat/tchat.controller.js';
 
 /**
- * Instanciate Tchat and Babyfoot controllers class and initialise
+ * Instantiate Tchat and Babyfoot controllers class and initialise
  */
 const design = new MainDesign();
 const wss = new WS();
@@ -26,7 +26,7 @@ wss.socket.onmessage = event => {
     bfc[message.action](message.data)
   }
 
-  if (message.type === tchatc.wsId) {
+  if (message.type === tchatc.wsId && tchatc.wsActions.includes(message.action)) {
     tchatc[message.action](message.data);
   }
 }

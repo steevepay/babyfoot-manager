@@ -1,5 +1,6 @@
 import TchatDesign from './tchat.design.js'
 import apiService from './tchat.api.service.js';
+import WebSockets from '../services/websocket.service.js';
 
 
 /**
@@ -14,7 +15,7 @@ export default class TchatController {
   /**
    * Creates an instance of TchatController.
    * @param {WebSockets} ws Websockets instance.
-   * @param {*} colorTheme Color of the global theme from the MainDesign Class
+   * @param {String} colorTheme Color of the global theme from the MainDesign Class
    * @memberof TchatController
    */
   constructor(ws, colorTheme) {

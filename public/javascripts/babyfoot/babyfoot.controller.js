@@ -1,5 +1,6 @@
 import apiService from './babyfoot.api.service.js';
 import BfDesign from './babyfoot.design.js'
+import WebSockets from '../services/websocket.service.js';
 
 /**
  * @description BabyFoot controller to manage the states and logic of the babyfoot games.
@@ -12,8 +13,8 @@ export default class BabyfootController {
 
   /**
    * Creates an instance of BabyfootController.
-   * @param {Websockets} ws Websockets instance to use the broadcast method on events.
-   * @param {*} colorTheme Color of the global theme from the MainDesign Class
+   * @param {WebSockets} ws Websockets instance to use the broadcast method on events.
+   * @param {String} colorTheme Color of the global theme from the MainDesign Class
    * @memberof BabyfootController
    */
   constructor(ws, colorTheme) {
@@ -96,7 +97,7 @@ export default class BabyfootController {
   /**
    * @description Initialise listener for click events on cards.
    *
-   * @param {*} game babyfoot game object {id: 0, name: 'John vs Théo', status: 'progress/done'}
+   * @param {Object} game babyfoot game object {id: 0, name: 'John vs Théo', status: 'progress/done'}
    * @memberof BabyfootController
    */
   initCardClicks (game) {
@@ -140,7 +141,7 @@ export default class BabyfootController {
   /**
    * @description Websocket action method called on new message event. Create the a new game and update the view.
    *
-   * @param {*} game babyfoot game object {id: 0, name: 'John vs Théo', status: 'progress/done'}
+   * @param {Object} game babyfoot game object {id: 0, name: 'John vs Théo', status: 'progress/done'}
    * @memberof BabyfootController
    */
   addCard(game) {
@@ -154,7 +155,7 @@ export default class BabyfootController {
   /**
    * @description Websocket action method called on new message event. Update the game status and the view.
    *
-   * @param {*} id Id of the game.
+   * @param {Number} id Id of the game.
    * @returns The status updated of the game.
    * @memberof BabyfootController
    */
@@ -176,7 +177,7 @@ export default class BabyfootController {
   /**
    * @description Websocket action method called on new message event. Delete the game and update the view.
    *
-   * @param {*} id Id of the game.
+   * @param {Number} id Id of the game.
    * @memberof BabyfootController
    */
   deleteCard(id) {
