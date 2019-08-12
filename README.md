@@ -2,8 +2,8 @@
 
 ## Introduction
 
-A Babyfoot manager is a web application aim to manage your babyfoot games. The application allows users to create games and update the game status (in progress / done) with other users in real-time.
-You can tchat with other people and make the babyfoot game crazy !!
+Babyfoot Manager is a web application aimed to manage babyfoot games. The application allows users to create games and update the game status (in progress / done) with other users in real-time.
+You can tchat with other people and make the babyfoot game crazier !!
 
 ## Demo
 
@@ -26,11 +26,11 @@ You can tchat with other people and make the babyfoot game crazy !!
 
 ## Babyfoot API Documentation
 
-To view the API documentation, visit [babyfoot.steevep.com/api/v1/](https://babyfoot.steevep.com/api/v1). You can also access locally to the documentation after running the project at the url [localhost:3010/api/v1](http://localhost:3010/api/v1)
+To view the API documentation, visit [babyfoot.steevep.com/api/v1/](https://babyfoot.steevep.com/api/v1). You can also access the documentation locally after running the project at the url [localhost:3010/api/v1](http://localhost:3010/api/v1)
 
 ## Setup
 
-In order to run and deploy quickly the application you may install Docker and Docker-compose. Then follow the [setup through docker-compose](#installation-through-docker-compose) section. It easier to manage the project through containers. When you're making a file edit, it's editing the file on the container automatically.
+In order to run and deploy the application, you may install Docker and Docker-compose. Then follow the [setup through docker-compose](#installation-through-docker-compose) section. It is easier to manage the project through containers. When you are making a file edit, it edits the file on the container automatically.
 
 Otherwise, you can setup and run the project locally on your laptop without containers. Follow the [Installation without docker-compose](#installation-without-docker-compose) section.
 
@@ -38,9 +38,9 @@ Otherwise, you can setup and run the project locally on your laptop without cont
 
 ### Installation through docker-compose
 
-Make sure you have installed docker-compose and docker before continu, otherwhise [install here](https://docs.docker.com/install/).
+Make sure you have installed docker-compose and docker before continuing, otherwise [install here](https://docs.docker.com/install/).
 
-You must create a the root directory an env file called ".env" with the following configuration:
+You must create a the root directory with an env file called ".env" with the following configuration:
 ```js
 PORT=3010 // Server port
 PGHOST='babyfoot.db' // Postgresql Host by docker
@@ -68,11 +68,11 @@ $ docker-compose down
 
 ### Installation without docker-compose
 
-You must have postgresql installed before continu, [check-out](https://www.postgresql.org/download/).
+You must have postgresql installed before continuing, [check-out](https://www.postgresql.org/download/).
 
-If you haven't created a user, you should run before:
+If you have not created a user, you should run execute the following command:
 `createuser <username> --createdb`.
-First you need to create your database with the following command:
+First, you need to create your database with the following command:
 ```shell
 $ createdb -h localhost -p 5432 -U $USER babyfoot
 ```
@@ -83,7 +83,7 @@ $ psql babyfoot < ./db/init.sql
 If you want to check your database on postgresql, you can run:
 `psql -U $USER -d babyfoot` and display the tables in the psql cli with: `\dt`;
 
-Create a the root directory an env file ".env" with the following configuration:
+Create a the root directory with an env file ".env" with the following configuration:
 
 ```js
 PORT=3010 // Server port
@@ -112,7 +112,7 @@ $ npm test
 
 ## File Structure
 
-Within the download you'll find the following directories and files:
+Within the download, you will find the following directories and files:
 
 ```
 |-- Babyfoot Manager,
