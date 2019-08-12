@@ -42,20 +42,21 @@ Make sure you have installed docker-compose and docker before continu, otherwhis
 
 You must create a the root directory an env file called ".env" with the following configuration:
 ```js
-PORT=3010
-PGHOST='babyfoot.db'
-PGPORT=5432
-PGUSER='root'
-PGPASSWORD='root'
-PGDATABASE='babyfoot'
+PORT=3010 // Server port
+PGHOST='babyfoot.db' // Postgresql Host by docker
+PGPORT=5432 // Postgresql Port
+PGUSER='root' // Postgresql User
+PGPASSWORD='root' // Postgresql password
+PGDATABASE='babyfoot' // Database name
 ```
 
 to run the project:
 ```shell
 $ docker-compose up -d
 ```
+Now the web application is running on http://localhost:3010.
 
-to run the unit tests, you must keep the containers up:
+To run the unit tests, you must keep the containers up:
 ```shell
 $ docker-compose -p bf-test run -p 3000 --rm bf-server npm run test
 ```
@@ -85,12 +86,12 @@ If you want to check your database on postgresql, you can run:
 Create a the root directory an env file ".env" with the following configuration:
 
 ```js
-PORT=3010
-PGHOST='localhost'
-PGPORT=5432
-PGUSER=<$USER> //insert your laptop username
-PGPASSWORD=null
-PGDATABASE='babyfoot'
+PORT=3010 // Server port
+PGHOST='localhost' // Postgresql Host
+PGPORT=5432 // Postgresql Port
+PGUSER='$USER' // Postgresql User - insert your laptop username
+PGPASSWORD=null // Postgresql password by default null
+PGDATABASE='babyfoot' // Database name
 ```
 
 Then, install the required packages in the root directory:
@@ -102,6 +103,7 @@ Launch the project with the following command:
 ```shell
 $ npm start
 ```
+Now the web application is running on http://localhost:3010
 
 To launch the tests, execute the command:
 ```shell
