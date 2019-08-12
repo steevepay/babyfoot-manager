@@ -1,4 +1,3 @@
-process.env.NODE_ENV = 'test';
 let assert = require('assert');
 let chai = require('chai');
 let chaiHttp = require('chai-http');
@@ -10,7 +9,7 @@ chai.use(chaiHttp);
 const endpoint = '/api/v1/games';
 const endpointid = '/api/v1/games/';
 
-describe('Babyfoot Manager API', () => {
+describe('Babyfoot games API', () => {
   
   beforeEach('Setting up the babyfoot API - Cleaning the DB', (done) => {
     console.log('beforeEach');
@@ -20,7 +19,7 @@ describe('Babyfoot Manager API', () => {
   });
 
   describe('GET', () => {
-    it('should get no game', (done) => {
+    it('should get no games, empty array.', (done) => {
       chai.request(server)
       .get(endpoint)
       .end((err, res) => {

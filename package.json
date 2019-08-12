@@ -6,7 +6,7 @@
     "dev": "DEBUG=babyfoot-manager:* npm start",
     "start": "node ./bin/www",
     "prod": "NODE_ENV=production npm start",
-    "test": "mocha"
+    "test": "NODE_ENV=test mocha"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

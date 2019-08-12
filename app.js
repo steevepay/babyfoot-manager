@@ -6,13 +6,6 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 /**
- * Generate the Swagger Documentation for the Babyfoot API 
- */
-const swaggerUi = require('swagger-ui-express');
-const YAML = require('yamljs');
-const swaggerDocument = YAML.load('./doc/swagger.yml');
-
-/**
  * Import the routes
  */
 const indexRouter = require('./routes/index');
@@ -31,7 +24,17 @@ app.use(express.static(path.join(__dirname, 'public')));
  */
 app.use('/', indexRouter);
 app.use('/api/v1', apiRouter);
-app.use('/api/v1', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+/**
+ * Generate the Swagger Documentation for the Babyfoot API 
+ */
+if (process.env.NODE_ENV !== 'test') {
+  const swaggerUi = require('swagger-ui-express');
+  const YAML = require('yamljs');
+  const swaggerDocument = YAML.load('./doc/swagger.yml');
+  app.use('/api/v1', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+}
+
 
 /**
  * If page does not exist, return a 404 error.
