@@ -17,7 +17,7 @@ const tchatc = new TchatController(wss, design.getThemeColor());
 tchatc.init();
 
 /**
- * Handle Websocket messages and redirect to specific functions (defined by message.action).
+ * Handle Websocket messages and redirect to specific functions (defined by message.action and wsActions).
  */
 wss.socket.onmessage = event => {
   let message = JSON.parse(event.data);

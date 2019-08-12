@@ -1,8 +1,22 @@
 import TchatDesign from './tchat.design.js'
 import apiService from './tchat.api.service.js';
 
+
+/**
+ * @description Tchat controller to manage the states and logic of the tchat.
+ *
+ * @export
+ * @class TchatController
+ */
 export default class TchatController {
   
+
+  /**
+   * Creates an instance of TchatController.
+   * @param {WebSockets} ws Websockets instance.
+   * @param {*} colorTheme Color of the global theme from the MainDesign Class
+   * @memberof TchatController
+   */
   constructor(ws, colorTheme) {
     /**
      * tdesign: manage/create/update/delete the tchat UI
@@ -29,7 +43,7 @@ export default class TchatController {
     this.receiveNotifWriting = true;
     this.sendNotifWriting = true;
     /** 
-     * ws: Websockets instance is used to call the broadcast method on UI events.
+     * ws: Websockets instance is used to call the broadcast method on UI events (on click => broadcast).
      * wsId: Id of the class
      * wsActions: Function names that can be called upon new websocket message.
     */
@@ -38,6 +52,12 @@ export default class TchatController {
     this.wsActions = ['addMessage', 'notifSomebodyWriting'];
   }
 
+  
+  /**
+   * @description Initialisation method to called after instanciate the class. Fetch the data and update the view.
+   *
+   * @memberof TchatController
+   */
   async init() {
     await this.fetchMessages();
     this.initInputAddMessage();
@@ -45,6 +65,13 @@ export default class TchatController {
     this.tdesign.scrollTchatBottom()
   }
 
+
+  /**
+   * @description Fetch the tchat messages from the pagination variables (Page and limit). Then display the news messages.
+   *
+   * @returns true if the data fetched is empty or false the opposite.
+   * @memberof TchatController
+   */
   async fetchMessages() {
     this.page++;
     let newMessages = await this.apiS.getMessages(this.page, this.limit);
@@ -57,21 +84,32 @@ export default class TchatController {
     return false;
   }
 
+
+
+  /**
+   * @description Listen for scroll event. If scroll on the top, it fetch older messages. If the fetchMessage method return true, it stop fetch new messages.
+   *
+   * @memberof TchatController
+   */
   initScrollListener() {
     let tchat = document.getElementById("list-messages-tchat");
     tchat.addEventListener('scroll', e => {
-      // console.log(tchat.scrollTop);
       if (tchat.scrollTop < 5 && !this.fetchingMessages) {
         this.fetchingMessages = true;
         this.fetchMessages().then(res => {
           this.fetchingMessages = res;
         })
-        // await = this.apiS.getMessages(this.page, this.limit);
-        // console.log('fetch');
       }
     }, false)
   }
 
+
+  /**
+   * @description Initialise listeners on the tchat input and prepare callbacks. If it press Return key (13), it check error on the input. Then it add on database then update the view with new message. Finally it broadcast a new message on websocket.
+   * @description If the keyboard is typed, it broadcast "somebody is writing event" to the other websocket clients.
+   *
+   * @memberof TchatController
+   */
   initInputAddMessage() {
     const input = document.getElementById('input-message');
     input.addEventListener('keydown', (e) => {
@@ -99,6 +137,13 @@ export default class TchatController {
     }, false);
   }
 
+
+  /**
+   * @description Websocket action method called on new message event. It add a new message and update the view.
+   *
+   * @param {Object} msg Object message: {id: 0, name: 'john', message: 'Hey!', user: true/false actual user or not}
+   * @memberof TchatController
+   */
   addMessage(msg) {
     console.log(msg);
     this.messages.push(msg);
@@ -106,6 +151,13 @@ export default class TchatController {
     this.tdesign.scrollTchatBottom();
   }
 
+
+  /**
+   * @description Websocket action method called on new message event. It display "somebody is writing" on the view. Timeout has been added to reduce the number of websocket events.
+   *
+   * @param {Object} data
+   * @memberof TchatController
+   */
   notifSomebodyWriting(data) {
     if (this.receiveNotifWriting) {
       this.receiveNotifWriting = false;
@@ -117,6 +169,15 @@ export default class TchatController {
     }
   }
 
+
+  /**
+   * @description Check inputs and update the view on errors. It check if username empty or the message field empty.
+   *
+   * @param {String} name name of the user typing the message
+   * @param {String} text message
+   * @returns
+   * @memberof TchatController
+   */
   checkInputsErrors(name, text) {
     if (!name || name === '') {
       this.tdesign.displayErrorMissingInput(true, 'from');
