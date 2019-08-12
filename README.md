@@ -1,13 +1,32 @@
-
-
 # Babyfoot Manager
 
 ## Introduction
 
 A Babyfoot manager is a web application aim to manage your babyfoot games. The application allows users to create games and update the game status (in progress / done) with other users in real-time.
-You can tchat with other people and make the babyfoot game crazy !! [Click here to visit the app online.](https://babyfoot.steevep.com)
+You can tchat with other people and make the babyfoot game crazy !!
 
+## Demo
+
+[Click here to visit the app online.](https://babyfoot.steevep.com)
 ![Web Capture](./doc/captured.gif)
+
+## Table of Contents
+
+- [Babyfoot Manager](#babyfoot-manager)
+  - [Introduction](#introduction)
+  - [Demo](#demo)
+  - [Table of Contents](#table-of-contents)
+  - [Babyfoot API Documentation](#babyfoot-api-documentation)
+  - [Setup](#setup)
+  - [Quick Start](#quick-start)
+    - [Installation through docker-compose](#installation-through-docker-compose)
+    - [Installation without docker-compose](#installation-without-docker-compose)
+  - [File Structure](#file-structure)
+  - [Project Structure](#project-structure)
+
+## Babyfoot API Documentation
+
+To view the API documentation, visit [babyfoot.steevep.com/api/v1/](https://babyfoot.steevep.com/api/v1). You can also access locally to the documentation after running the project at the url [localhost:3010/api/v1](http://localhost:3010/api/v1)
 
 ## Setup
 
@@ -15,11 +34,7 @@ In order to run and deploy quickly the application you may install Docker and Do
 
 Otherwise, you can setup and run the project locally on your laptop without containers. Follow the [Installation without docker-compose](#installation-without-docker-compose) section.
 
-## Babyfoot API Documentation
-
-To view the API documentation, visit [babyfoot.steevep.com/api/v1/](https://babyfoot.steevep.com/api/v1). You can access locally to the documentation after running the project at the url [localhost:3010/api/v1](http://localhost:3010/api/v1)
-
-## Getting Started
+## Quick Start
 
 ### Installation through docker-compose
 
@@ -91,6 +106,91 @@ $ npm start
 To launch the tests, execute the command:
 ```shell
 $ npm test
+```
+
+## File Structure
+
+Within the download you'll find the following directories and files:
+
+```
+|-- Babyfoot Manager',
+    |-- .dockerignore',
+    |-- .env',
+    |-- .gitignore',
+    |-- Dockerfile',
+    |-- README.md',
+    |-- app.js',
+    |-- docker-compose.yml',
+    |-- package-lock.json',
+    |-- package.json',
+    |-- api',
+    |   |-- index.js',
+    |   |-- queries',
+    |-- bin',
+    |   |-- www',
+    |-- db',
+    |   |-- init.sql',
+    |-- doc',
+    |   |-- captured.gif',
+    |   |-- structure.jpg',
+    |   |-- swagger.yml',
+    |-- public',
+    |   |-- .DS_Store',
+    |   |-- index.html',
+    |   |-- favicons',
+    |   |   |-- android-icon-144x144.png',
+    |   |   |-- android-icon-192x192.png',
+    |   |   |-- android-icon-36x36.png',
+    |   |   |-- android-icon-48x48.png',
+    |   |   |-- android-icon-72x72.png',
+    |   |   |-- android-icon-96x96.png',
+    |   |   |-- apple-icon-114x114.png',
+    |   |   |-- apple-icon-120x120.png',
+    |   |   |-- apple-icon-144x144.png',
+    |   |   |-- apple-icon-152x152.png',
+    |   |   |-- apple-icon-180x180.png',
+    |   |   |-- apple-icon-57x57.png',
+    |   |   |-- apple-icon-60x60.png',
+    |   |   |-- apple-icon-72x72.png',
+    |   |   |-- apple-icon-76x76.png',
+    |   |   |-- apple-icon-precomposed.png',
+    |   |   |-- apple-icon.png',
+    |   |   |-- browserconfig.xml',
+    |   |   |-- favicon-16x16.png',
+    |   |   |-- favicon-32x32.png',
+    |   |   |-- favicon-96x96.png',
+    |   |   |-- favicon.ico',
+    |   |   |-- manifest.json',
+    |   |   |-- ms-icon-144x144.png',
+    |   |   |-- ms-icon-150x150.png',
+    |   |   |-- ms-icon-310x310.png',
+    |   |   |-- ms-icon-70x70.png',
+    |   |-- images',
+    |   |   |-- .DS_Store',
+    |   |   |-- delete.png',
+    |   |-- javascripts',
+    |   |   |-- main.controller.js',
+    |   |   |-- main.design.js',
+    |   |   |-- babyfoot',
+    |   |   |   |-- babyfoot.api.service.js',
+    |   |   |   |-- babyfoot.controller.js',
+    |   |   |   |-- babyfoot.design.js',
+    |   |   |-- services',
+    |   |   |   |-- websocket.service.js',
+    |   |   |-- tchat',
+    |   |       |-- tchat.api.service.js',
+    |   |       |-- tchat.controller.js',
+    |   |       |-- tchat.design.js',
+    |   |-- stylesheets',
+    |       |-- babyfoot.css',
+    |       |-- global.css',
+    |       |-- tchat.css',
+    |       |-- themes.css',
+    |-- routes',
+    |   |-- api.js',
+    |   |-- index.js',
+    |-- test',
+        |-- api.test.js',
 ```
 
 ## Project Structure
