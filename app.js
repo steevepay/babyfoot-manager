@@ -8,7 +8,7 @@ const logger = require('morgan');
 /** Generate the Swagger Documentation for the Babyfoot API */
 const swaggerUi = require('swagger-ui-express');
 const YAML = require('yamljs');
-const swaggerDocument = YAML.load('./swagger.yml');
+const swaggerDocument = YAML.load('./doc/swagger.yml');
 
 const indexRouter = require('./routes/index');
 const apiRouter = require('./routes/api');
