@@ -42,12 +42,12 @@ Make sure you have installed docker-compose and docker before continuing, otherw
 
 You must create a the root directory with an env file called ".env" with the following configuration:
 ```js
-PORT=3010 // Server port
-PGHOST='babyfoot.db' // Postgresql Host by docker
-PGPORT=5432 // Postgresql Port
-PGUSER='root' // Postgresql User
-PGPASSWORD='root' // Postgresql password
-PGDATABASE='babyfoot' // Database name
+PORT=3010 # Server port
+PGHOST='babyfoot.db' # Postgresql Host by docker
+PGPORT=5432 # Postgresql Port
+PGUSER='root' # Postgresql User
+PGPASSWORD='root' # Postgresql password
+PGDATABASE='babyfoot' # Database name
 ```
 
 to run the project:
@@ -86,12 +86,12 @@ If you want to check your database on postgresql, you can run:
 Create a the root directory with an env file ".env" with the following configuration:
 
 ```js
-PORT=3010 // Server port
-PGHOST='localhost' // Postgresql Host
-PGPORT=5432 // Postgresql Port
-PGUSER='$USER' // Postgresql User - insert your laptop username
-PGPASSWORD=null // Postgresql password by default null
-PGDATABASE='babyfoot' // Database name
+PORT=3010 # Server port
+PGHOST='localhost' # Postgresql Host
+PGPORT=5432 # Postgresql Port
+PGUSER='$USER' # Postgresql User - insert your laptop username
+PGPASSWORD=null # Postgresql password by default null
+PGDATABASE='babyfoot' # Database name
 ```
 
 Then, install the required packages in the root directory:
