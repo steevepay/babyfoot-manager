@@ -113,7 +113,7 @@ $ npm test
 Within the download you'll find the following directories and files:
 
 ```
-|-- Babyfoot Manager',
+|-- Babyfoot Manager,
     |-- .dockerignore',
     |-- .env',
     |-- .gitignore',
