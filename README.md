@@ -115,7 +115,6 @@ Within the download you'll find the following directories and files:
 ```
 |-- Babyfoot Manager,
     |-- .dockerignore',
-    |-- .env',
     |-- .gitignore',
     |-- Dockerfile',
     |-- README.md',
