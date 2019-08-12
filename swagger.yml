@@ -6,10 +6,10 @@ info:
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: "localhost:8080"
+host: "babyfoot.steevep.com"
 basePath: "/api/v1"
 schemes:
-- "http"
+- "https"
 tags:
 - name: "games"
   description: "endpoints to manage the babyfoot games"

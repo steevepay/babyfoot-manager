@@ -148,47 +148,52 @@
 @-webkit-keyframes color_change {
 	
   0% { color: #db59ea; }
-  15% { color: #2f5498; }
-  25% { color: #00fff3; }
-  50% { color:  #00ea72;}
-  75% { color: #ff7d4b; }
-  100% { color: #de2545; }
+  /* /* 15% { color: #2f5498; } */
+  /* 25% { color: #00fff3; } */
+  50% { color:  #00ea72; }
+  /* 75% { color: #ff7d4b; } */
+  /* 100% { color: #de2545; } */
+  100% { color: #00fff3; }
 }
 @-moz-keyframes color_change {
 	
   0% { color: #db59ea; }
-  15% { color: #2f5498; }
-  25% { color: #00fff3; }
-  50% { color:  #00ea72;}
-  75% { color: #ff7d4b; }
-  100% { color: #de2545; }
+  /* /* 15% { color: #2f5498; } */
+  /* 25% { color: #00fff3; } */
+  50% { color:  #00ea72; }
+  /* 75% { color: #ff7d4b; } */
+  /* 100% { color: #de2545; } */
+  100% { color: #00fff3; }
 }
 @-ms-keyframes color_change {
 	
   0% { color: #db59ea; }
-  15% { color: #2f5498; }
-  25% { color: #00fff3; }
-  50% { color:  #00ea72;}
-  75% { color: #ff7d4b; }
-  100% { color: #de2545; }
+  /* /* 15% { color: #2f5498; } */
+  /* 25% { color: #00fff3; } */
+  50% { color:  #00ea72; }
+  /* 75% { color: #ff7d4b; } */
+  /* 100% { color: #de2545; } */
+  100% { color: #00fff3; }
 }
 @-o-keyframes color_change {
 	
   0% { color: #db59ea; }
-  15% { color: #2f5498; }
-  25% { color: #00fff3; }
-  50% { color:  #00ea72;}
-  75% { color: #ff7d4b; }
-  100% { color: #de2545; }
+  /* /* 15% { color: #2f5498; } */
+  /* 25% { color: #00fff3; } */
+  50% { color:  #00ea72; }
+  /* 75% { color: #ff7d4b; } */
+  /* 100% { color: #de2545; } */
+  100% { color: #00fff3; }
 }
 @keyframes color_change {
 	
   0% { color: #db59ea; }
-  15% { color: #2f5498; }
-  25% { color: #00fff3; }
-  50% { color:  #00ea72;}
-  75% { color: #ff7d4b; }
-  100% { color: #de2545; }
+  /* /* 15% { color: #2f5498; } */
+  /* 25% { color: #00fff3; } */
+  50% { color:  #00ea72; }
+  /* 75% { color: #ff7d4b; } */
+  /* 100% { color: #de2545; } */
+  100% { color: #00fff3; }
 }
 
 /** ON MOBILE */
