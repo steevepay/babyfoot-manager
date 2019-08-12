@@ -5,7 +5,7 @@
 ## Introduction
 
 A Babyfoot manager is a web application aim to manage your babyfoot games. The application allows users to create games and update the game status (in progress / done) with other users in real-time.
-You can tchat with other people and make the babyfoot game crazy !! Visit the app online: babyfoot.steevep.com
+You can tchat with other people and make the babyfoot game crazy !! [Click here to visit the app online.](https://babyfoot.steevep.com)
 
 ## Setup
 
@@ -15,7 +15,7 @@ Otherwise, you can setup and run the project locally on your laptop without cont
 
 ## Babyfoot API Documentation
 
-To view the API documentation, visit babyfoot.steevep.com/api/v1/. You can access locally to the documentation after running the project at the url [localhost:3010/api/v1](http://localhost:3010/api/v1)
+To view the API documentation, visit [babyfoot.steevep.com/api/v1/](https://babyfoot.steevep.com/api/v1). You can access locally to the documentation after running the project at the url [localhost:3010/api/v1](http://localhost:3010/api/v1)
 
 ## Getting Started
 
