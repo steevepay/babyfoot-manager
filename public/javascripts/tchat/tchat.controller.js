@@ -4,18 +4,35 @@ import apiService from './tchat.api.service.js';
 export default class TchatController {
   
   constructor(ws, colorTheme) {
+    /**
+     * tdesign: manage/create/update/delete the tchat UI
+     */
     this.tdesign = new TchatDesign(colorTheme);
+    /**
+     * apiS: Service to communicate with the API.
+     */
     this.apiS = new apiService();
+    /**
+     * List of the messages fetched by apiS.
+     * The source of truth that drives the tchat.
+     */
     this.messages =  [];
-    /** Manage message fetching */
+    /**
+     * Manage pagination when the tchat is scrolling to the top.
+     */
     this.page = 0;
     this.limit = 10;
     this.fetchingMessages = false;
-
-    /** Notification variables if somebody is writing */
+    /** 
+     * Notification variables if somebody is writing 
+     */
     this.receiveNotifWriting = true;
     this.sendNotifWriting = true;
-    /** Websockets */
+    /** 
+     * ws: Websockets instance is used to call the broadcast method on UI events.
+     * wsId: Id of the class
+     * wsActions: Function names that can be called upon new websocket message.
+    */
     this.ws = ws;
     this.wsId = 'wb-message-tchat';
     this.wsActions = ['addMessage', 'notifSomebodyWriting'];

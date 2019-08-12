@@ -1,8 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
 <html>
 
 <head>
   <title>Babyfoot Manager</title>
   <meta name="viewport" content= "width=device-width, initial-scale=1.0"> 
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <!-- FAVICONS -->
   <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-icon-60x60.png">
   <link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-icon-72x72.png">
@@ -21,12 +26,14 @@
   <meta name="msapplication-TileImage" content="/favicons/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
 
+  <!-- APP STYLE FILES -->
   <link rel="stylesheet" href="/stylesheets/global.css">
   <link rel="stylesheet" href="/stylesheets/themes.css">
   <link rel="stylesheet" href="/stylesheets/babyfoot.css">
   <link rel="stylesheet" href="/stylesheets/tchat.css">
-  <!-- <script src="/javascripts/apiservice.js"></script> -->
+  <!-- MAIN JS CONTROLLER FILE -->
   <script type="module" src="/javascripts/main.controller.js" ></script>
+  
 </head>
 
 <body>
@@ -43,9 +50,9 @@
       </div>
       <div id="nbr-games">0 games</div>
     </div>
-
-    <div class="container" id="container-list">
-      
+    <!--                LIST GAMES              -->
+    <div class="container" id="container-list">  
+      <!--         GAME CARD        -->
       <!-- <div class="card">
         <div class="card-content">
           <object class="icon" type="image/svg+xml" data="https://avatars.dicebear.com/v2/human/test.svg?options[mood][]=happy">
@@ -65,16 +72,15 @@
       </div> -->
 
     </div>
-
+    <!--                TCHAT              -->
     <div id="container-tchat">
       <div id="header-tchat">
-         
-        <span id="title-tchat"> Live Tchat 🔥</span>
-          
+        <span id="title-tchat"> Live Tchat 🔥</span>          
         <span id="notif-writing">somebody is writing...</span>
       </div>
       <div id="body-tchat">
         <div id="list-messages-tchat">
+        <!--        TCHAT MESSAGES LIST        -->
         <!-- <div class="msg">
           <div class="from">From: John</div>
           <div>Hey this is my tchat!!!</div>
@@ -86,7 +92,6 @@
           <input type="text" placeholder="write a message..." id="input-message">
         </div>
       </div>
-      
     </div>
   </div>
 </body>

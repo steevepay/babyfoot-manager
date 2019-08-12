@@ -4,6 +4,9 @@ import WS from './services/websocket.service.js';
 import BabyfootController from './babyfoot/babyfoot.controller.js';
 import TchatController from './tchat/tchat.controller.js';
 
+/**
+ * Instanciate Tchat and Babyfoot controllers class and initialise
+ */
 const design = new MainDesign();
 const wss = new WS();
 
@@ -13,6 +16,9 @@ bfc.init();
 const tchatc = new TchatController(wss, design.getThemeColor());
 tchatc.init();
 
+/**
+ * Handle Websocket messages and redirect to specific functions (defined by message.action).
+ */
 wss.socket.onmessage = event => {
   let message = JSON.parse(event.data);
   

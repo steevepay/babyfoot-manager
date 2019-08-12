@@ -4,10 +4,24 @@ import BfDesign from './babyfoot.design.js'
 export default class BabyfootController {
   
   constructor(ws, colorTheme) {
+    /**
+     * bfdesign: manage/create/update/delete the tchat UI
+     */
     this.bfdesign = new BfDesign(colorTheme);
+    /**
+     * apiS: Service to communicate with the API.
+     */
     this.apiS = new apiService();
+    /**
+     * List of the games fetched by apiS.
+     * The source of truth that drives the babyfoot app.
+     */
     this.games =  [];
-    /** Websockets */
+    /** 
+     * ws: Websockets instance is used to call the broadcast method upon UI events.
+     * wsId: Id of the class
+     * wsActions: Function names that can be called upon new websocket message.
+    */
     this.ws = ws;
     this.wsId = 'wb-message-bf';
     this.wsActions = ['addCard', 'updateCard', 'deleteCard'];
