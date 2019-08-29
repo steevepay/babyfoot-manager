@@ -3,7 +3,7 @@ version: '3.1'
 services:
   bf-postgre:
     image: postgres
-    container_name: babyfoot.db
+    container_name: db.babyfoot.steevep.com
     restart: always
     expose: 
       - "5432"
@@ -18,7 +18,7 @@ services:
   bf-server:
     build: .
     command: "npm start"
-    container_name: babyfoot.server
+    container_name: babyfoot.steevep.com
     ports:
       - "${PORT}:${PORT}"
     networks:
