@@ -18,6 +18,7 @@ services:
   bf-server:
     build: .
     command: "npm start"
+    restart: always
     container_name: babyfoot.steevep.com
     ports:
       - "${PORT}:${PORT}"
