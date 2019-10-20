@@ -42,19 +42,19 @@ Make sure you have installed docker-compose and docker before continuing, otherw
 
 You must create a the root directory with an env file called ".env" with the following configuration:
 ```js
-PORT=3010 # Server port
-PGHOST='babyfoot.db' # Postgresql Host by docker
-PGPORT=5432 # Postgresql Port
-PGUSER='root' # Postgresql User
-PGPASSWORD='root' # Postgresql password
-PGDATABASE='babyfoot' # Database name
+PGHOST='db.babyfoot.steevep.com'
+PGPORT=5432
+PGUSER='root'
+PGPASSWORD='root'
+PGDATABASE='babyfoot'
+PORT=3010
 ```
 
 to run the project:
 ```shell
 $ docker-compose up -d
 ```
-Now the web application is running on http://localhost:3010.
+Now the web application is running on http://localhost:3010. You can develop then refresh your browser to see the changes.
 
 To run the unit tests, you must keep the containers up:
 ```shell

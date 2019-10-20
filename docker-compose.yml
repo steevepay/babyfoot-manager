@@ -3,23 +3,24 @@ version: '3.1'
 services:
   bf-postgre:
     image: postgres
-    container_name: db.babyfoot.steevep.com
+    container_name: ${PGHOST}
     restart: always
     expose: 
-      - "5432"
+      - "${PGPORT}"
     # ports:
-    # - "5432:5432"
+    #   - "${PGPORT}:${PGPORT}"
     environment:
-      POSTGRES_DB: babyfoot
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: root
+      POSTGRES_DB: ${PGDATABASE}
+      POSTGRES_USER: ${PGUSER}
+      POSTGRES_PASSWORD: ${PGPASSWORD}
     volumes:
       - ./db/:/docker-entrypoint-initdb.d/
+      - ./postgres-data:/var/lib/postgresql/data
   bf-server:
     build: .
     command: "npm start"
     restart: always
-    container_name: babyfoot.steevep.com
+    container_name: ${VIRTUAL_HOST}
     ports:
       - "${PORT}:${PORT}"
     networks:
@@ -31,6 +32,8 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
+    depends_on: 
+      - bf-postgre
 
 networks:
   default:
