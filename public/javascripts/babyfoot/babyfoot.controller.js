@@ -17,15 +17,15 @@ export default class BabyfootController {
    * @param {String} colorTheme Color of the global theme from the MainDesign Class
    * @memberof BabyfootController
    */
-  constructor(ws, colorTheme) {
+  constructor() {
     /**
      * bfdesign: manage/create/update/delete the game cards UI
      */
-    this.bfdesign = new BfDesign(colorTheme);
+    this.bfdesign = null;
     /**
      * apiS: Service to communicate with the API.
      */
-    this.apiS = new apiService();
+    this.apiS = null;
     /**
      * List of the games fetched by apiS.
      * The source of truth that drives the babyfoot app.
@@ -36,7 +36,7 @@ export default class BabyfootController {
      * wsId: Id of the class
      * wsActions: Function names that can be called upon new websocket message.
     */
-    this.ws = ws;
+    this.ws = null;
     this.wsId = 'wb-message-bf';
     this.wsActions = ['addCard', 'updateCard', 'deleteCard'];
   }
@@ -47,7 +47,12 @@ export default class BabyfootController {
    *
    * @memberof BabyfootController
    */
-  async init() {
+  async init(ws, colorTheme) {
+    // Init values
+    this.apiS = new apiService();
+    this.bfdesign = new BfDesign(colorTheme);
+    this.ws = ws;
+    // Init App
     await this.initGames();
     this.updateGamesInProgress();
     this.initInputAddGame();

@@ -10,11 +10,11 @@ import TchatController from './tchat/tchat.controller.js';
 const design = new MainDesign();
 const wss = new WS();
 
-const bfc = new BabyfootController(wss, design.getThemeColor());
-bfc.init();
+const bfc = new BabyfootController();
+bfc.init(wss, design.getThemeColor());
 
-const tchatc = new TchatController(wss, design.getThemeColor());
-tchatc.init();
+const tchatc = new TchatController();
+tchatc.init(wss, design.getThemeColor());
 
 /**
  * Handle Websocket messages and redirect to specific functions (defined by message.action and wsActions).
@@ -30,3 +30,5 @@ wss.socket.onmessage = event => {
     tchatc[message.action](message.data);
   }
 }
+
+console.log("call main controller");

@@ -49,6 +49,10 @@ PGPASSWORD='root'
 PGDATABASE='babyfoot'
 PORT=3010
 ```
+Create a directory `postgres-data`, that will be used by postgres container to persist the data:
+```shell
+$ mkdir postgres-data
+```
 
 to run the project:
 ```shell

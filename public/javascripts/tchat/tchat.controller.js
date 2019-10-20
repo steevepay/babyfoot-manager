@@ -18,15 +18,15 @@ export default class TchatController {
    * @param {String} colorTheme Color of the global theme from the MainDesign Class
    * @memberof TchatController
    */
-  constructor(ws, colorTheme) {
+  constructor() {
     /**
      * tdesign: manage/create/update/delete the tchat UI
      */
-    this.tdesign = new TchatDesign(colorTheme);
+    this.tdesign = null;
     /**
      * apiS: Service to communicate with the API.
      */
-    this.apiS = new apiService();
+    this.apiS = null;
     /**
      * List of the messages fetched by apiS.
      * The source of truth that drives the tchat.
@@ -48,7 +48,7 @@ export default class TchatController {
      * wsId: Id of the class
      * wsActions: Function names that can be called upon new websocket message.
     */
-    this.ws = ws;
+    this.ws = null;
     this.wsId = 'wb-message-tchat';
     this.wsActions = ['addMessage', 'notifSomebodyWriting'];
   }
@@ -59,7 +59,12 @@ export default class TchatController {
    *
    * @memberof TchatController
    */
-  async init() {
+  async init(ws, colorTheme) {
+    // Init Values
+    this.tdesign = new TchatDesign(colorTheme);
+    this.ws = ws;
+    this.apiS = new apiService();
+    // Init Tchat
     await this.fetchMessages();
     this.initInputAddMessage();
     this.initScrollListener();
