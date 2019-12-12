@@ -34,6 +34,12 @@ services:
       - /app/node_modules
     depends_on: 
       - bf-postgre
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "--silent", "http://localhost:${PORT}"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
 
 networks:
   default:
