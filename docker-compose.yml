@@ -21,8 +21,8 @@ services:
     command: "npm start"
     restart: always
     container_name: ${VIRTUAL_HOST}
-    ports:
-      - "${PORT}:${PORT}"
+    expose: 
+      - "${PORT}"
     networks:
       - default
     environment:
