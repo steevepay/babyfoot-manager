@@ -16,6 +16,12 @@ services:
     volumes:
       - ./db/:/docker-entrypoint-initdb.d/
       - ./postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "${PGDATABASE}", "-U", "${PGUSER}" ]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
   bf-server:
     build: .
     command: "npm start"
