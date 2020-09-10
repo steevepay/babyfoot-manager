@@ -1,4 +1,4 @@
-FROM node:lts-jessie
+FROM node:12-slim
 
 # make the 'app' folder the current working directory
 WORKDIR /app
