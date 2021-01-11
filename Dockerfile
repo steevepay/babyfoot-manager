@@ -1,5 +1,7 @@
 FROM node:12-slim
 
+RUN apt-get update && apt-get install curl -y
+
 # make the 'app' folder the current working directory
 WORKDIR /app
 
