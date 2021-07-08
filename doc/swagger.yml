@@ -6,7 +6,7 @@ info:
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: "babyfoot.steevep.com"
+host: "babyfoot.steeve.eu"
 basePath: "/api/v1"
 schemes:
 - "https"
@@ -195,7 +195,7 @@ definitions:
   UpdateGame:
     type: "object"
     properties:
-      status: 
+      status:
         type: "string"
         description: "Game status"
         enum:

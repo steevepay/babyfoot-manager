@@ -2,12 +2,12 @@
 
 ## Introduction
 
-Babyfoot Manager is a web application aimed to manage babyfoot games. The application allows users to create games and update the game status (in progress / done) with other users in real-time.
+Mnage babyfoot games and chat with your friends in live. The application allows users to create games and update the game status (in progress / done) with other users in real-time.
 You can tchat with other people and make the babyfoot game crazier !!
 
 ## Demo
 
-[Click here to visit the app online.](https://babyfoot.steevep.com)
+[Click here to visit the app online.](https://babyfoot.steeve.eu)<br>
 ![Web Capture](./doc/captured.gif)
 
 ## Table of Contents
@@ -26,7 +26,7 @@ You can tchat with other people and make the babyfoot game crazier !!
 
 ## Babyfoot API Documentation
 
-To view the API documentation, visit [babyfoot.steevep.com/api/v1/](https://babyfoot.steevep.com/api/v1). You can also access the documentation locally after running the project at the url [localhost:3010/api/v1](http://localhost:3010/api/v1)
+To view the API documentation, visit [babyfoot.steeve.eu/api/v1/](https://babyfoot.steeve.eu/api/v1). You can also access the documentation locally after running the project at the url [localhost:3010/api/v1](http://localhost:3010/api/v1)
 
 ## Setup
 
@@ -42,7 +42,7 @@ Make sure you have installed docker-compose and docker before continuing, otherw
 
 You must create a the root directory with an env file called ".env" with the following configuration:
 ```js
-PGHOST='db.babyfoot.steevep.com'
+PGHOST='db.babyfoot.steeve.eu'
 PGPORT=5432
 PGUSER='root'
 PGPASSWORD='root'
