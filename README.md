@@ -9,7 +9,6 @@ You can tchat with other people and make the babyfoot game crazier !!
 
 ## Demo
 
-[Click here to visit the app online.](https://babyfoot.steeve.eu)<br>
 ![Web Capture](./doc/captured.gif)
 
 ## Table of Contents
@@ -28,30 +27,30 @@ You can tchat with other people and make the babyfoot game crazier !!
 
 ## Babyfoot API Documentation
 
-To view the API documentation, visit [babyfoot.steeve.eu/api/v1/](https://babyfoot.steeve.eu/api/v1). You can also access the documentation locally after running the project at the url [localhost:3010/api/v1](http://localhost:3010/api/v1)
+To view the API documentation locally, visit [localhost:3010/api/v1](http://localhost:3010/api/v1).
 
 ## Setup
 
-In order to run and deploy the application, you may install Docker and Docker-compose. Then follow the [setup through docker-compose](#installation-through-docker-compose) section. It is easier to manage the project through containers. When you are making a file edit, it edits the file on the container automatically.
+To run and deploy the application, you may install Docker and Docker-compose. Then, follow the [setup through docker-compose](#installation-through-docker-compose) section. Containers make managing the project easier. When you edit a file, it edits the file on the container automatically.
 
-Otherwise, you can setup and run the project locally on your laptop without containers. Follow the [Installation without docker-compose](#installation-without-docker-compose) section.
+Otherwise, you can set up and run the project locally on your laptop without containers. Follow the [Installation without docker-compose](#installation-without-docker-compose) section.
 
 ## Quick Start
 
 ### Installation through docker-compose
 
-Make sure you have installed docker-compose and docker before continuing, otherwise [install here](https://docs.docker.com/install/).
+Ensure you have installed docker-compose and docker before continuing; otherwise, [install here](https://docs.docker.com/install/).
 
-You must create a the root directory with an env file called ".env" with the following configuration:
+You must create at the root directory an env file called ".env" with the following configuration:
 ```js
-PGHOST='db.babyfoot.steeve.eu'
+PGHOST='db.babyfoot.website.com'
 PGPORT=5432
 PGUSER='root'
 PGPASSWORD='root'
 PGDATABASE='babyfoot'
 PORT=3010
 ```
-Create a directory `postgres-data`, that will be used by postgres container to persist the data:
+Create a directory, `postgres-data`, that will be used by postgres container to persist the data:
 ```shell
 $ mkdir postgres-data
 ```
