@@ -1,3 +1,5 @@
+> 2024 UPDATE: It was a project for a job application as a Fullstack Developer. It was fun to create, and I got the job! The repo is now public since I'm not working with them anymore.
+
 # Babyfoot Manager
 
 ## Introduction
